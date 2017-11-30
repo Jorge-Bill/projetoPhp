@@ -1,5 +1,8 @@
 <?php
 
+$pdo=conectar();
+session_start();
+
 $detalhesPessoa = $pdo -> prepare("SELECT 
     pessoa.id       AS id,
     pessoa.nome     AS nome,
@@ -11,5 +14,5 @@ $detalhesPessoa = $pdo -> prepare("SELECT
     FROM pessoa
     ");
 
-$detalhesPessoa -> execute();
-//$detalhesPessoa ->
+$detalhesPessoa->execute();
+$detalhesPessoa = $detalhesPessoa->fetchAll(PDO::FETCH_OBJ);
