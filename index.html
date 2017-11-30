@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+<h1>Tela de Login</h1>
+<div class="container-fluid centered" >
+    <div class="container">
+        <form class="form-horizontal" method="post" action="valida.php">
+            <div class="form-group">
+                <label for="inputEmail3" class="col-sm-2 control-label">Usuário</label>
+
+                <div class="col-sm-2">
+                    <input class="form-control" id="inputEmail3" placeholder="Digite seu usuário">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword3" class="col-sm-2 control-label">Senha</label>
+                <div class="col-sm-2">
+                    <input type="password" maxlength="6" class="form-control" id="inputPassword3" placeholder="Digite sua senha">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-2">
+                    <h6>Escolha o perfil de usuario</h6>
+                    <div class="checkbox">
+                        <select class="form-horizontal">
+
+                            <option value="volvo">Admin</option>
+                            <option value="usu">Usuário</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-2">
+                    <button type="submit" class="btn btn-default">Entrar</button>
+                </div>
+            </div>
+        </form>
+        </form>
+    </div>
+</div>
+</body>
+</html>
