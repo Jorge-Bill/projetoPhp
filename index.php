@@ -1,22 +1,17 @@
 <?php
-session_start();
+//session_start();
+
+require_once "navegacao.php";
+require_once "paginas/header.php";
 
 if($_SESSION) {
     if(array_key_exists('logado', $_SESSION)) {
-        header("Location: dashboard.php");
+        header("Location: /paginas/dashboard.php");
     }
 }
+
 ?>
 
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/estilos.css">
-</head>
-<body>
 <h1>Tela de Login</h1>
 <div class="container-fluid centered" >
     <div class="container">
@@ -54,7 +49,8 @@ if($_SESSION) {
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<?php require_once "paginas/footer.php"; ?>
+
 <script>
     $(document).ready(function(){
 
@@ -71,8 +67,8 @@ if($_SESSION) {
                     if(data.status !== 200 ) {
                         alert(`${data.message}`);
                     } else {
-                        alert(`Seja bem vindo ao sistemas do Ganço e do Wiliiam`);
-                        window.location = "dashboard.php";
+                        alert(`Seja bem vindo ao sistema do Ganço e do Wiliiam`);
+                        window.location = "paginas/dashboard.php";
                     }
                 });
             } else {

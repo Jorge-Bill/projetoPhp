@@ -1,6 +1,6 @@
 <?php
 
-require_once "conecta.php";
+require_once "paginas/conecta.php";
 
 header('Content-Type: application/json');
 
