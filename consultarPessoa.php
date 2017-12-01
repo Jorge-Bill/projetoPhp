@@ -1,9 +1,8 @@
 <?php
 
-$pdo=conectar();
-session_start();
+$pdo = conectar();
 
-$detalhesPessoa = $pdo -> prepare("SELECT 
+$detalhesPessoa = $pdo->prepare("SELECT 
     pessoa.id       AS id,
     pessoa.nome     AS nome,
     pessoa.foto     AS foto,

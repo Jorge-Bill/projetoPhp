@@ -71,7 +71,7 @@ if($_SESSION) {
                     if(data.status !== 200 ) {
                         alert(`${data.message}`);
                     } else {
-                        alert(`Seja bem bindo ao sistemas do Ganço e do Wiliiam`);
+                        alert(`Seja bem vindo ao sistemas do Ganço e do Wiliiam`);
                         window.location = "dashboard.php";
                     }
                 });
