@@ -12,25 +12,26 @@ if($_SESSION) {
 
 ?>
 
-<h1>Tela de Login</h1>
+<h1 class="text-center">Login</h1>
+<hr>
 <div class="container-fluid centered" >
-    <div class="container">
+    <div class="container col-md-6 col-md-offset-3 col-xs-12">
         <form class="form-horizontal">
             <div class="form-group">
-                <label for="email" class="col-sm-2 control-label">Usuário</label>
+                <label for="email" class=" control-label">Usuário</label>
 
-                <div class="col-sm-2">
+                <div class="">
                     <input class="form-control" id="email" name="email" placeholder="Digite seu usuário">
                 </div>
             </div>
             <div class="form-group">
-                <label for="senha" class="col-sm-2 control-label">Senha</label>
-                <div class="col-sm-2">
+                <label for="senha" class=" control-label">Senha</label>
+                <div class="">
                     <input type="password" maxlength="6" class="form-control" id="senha" name="senha" placeholder="Digite sua senha">
                 </div>
             </div>
             <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-2">
+                <div class="">
                     <h6>Escolha o perfil de usuario</h6>
                     <div class="checkbox">
                         <select class="form-horizontal" id="perfil">
@@ -41,8 +42,8 @@ if($_SESSION) {
                 </div>
             </div>
             <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-2">
-                    <button type="button" class="btn btn-default" id="login">Entrar</button>
+                <div class="">
+                    <button type="button" class="btn btn-primary pull-right" id="login">Entrar</button>
                 </div>
             </div>
         </form>

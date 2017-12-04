@@ -1,4 +1,9 @@
-
+<?php
+require_once "../navegacao.php";
+require_once "conecta.php";
+require_once "consultarPessoa.php";
+require_once "header.php";
+?>
 <div class="panel panel-default">
     <div class="panel-heading">
         <h1 class="text-center">Lista de usuários</h1>
@@ -27,7 +32,7 @@
                             Editar
                         </a>
                         |
-                        <a class="btn btn-sm btn-danger" href="#">
+                        <a class="btn btn-sm btn-danger" href="deletarUsuario.php?id=<?=$pessoa->id;?>">
                             Excluir
                         </a>
                     </td>
@@ -37,3 +42,5 @@
         </table>
     </div>
 </div>
+
+<?php require_once "footer.php"; ?>

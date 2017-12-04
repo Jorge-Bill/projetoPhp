@@ -4,7 +4,9 @@ require_once "paginas/conecta.php";
 
 header('Content-Type: application/json');
 
-session_start();
+//session_start();
+
+require_once "navegacao.php";
 
 $msg = ['results' => [
     'currect' => [
