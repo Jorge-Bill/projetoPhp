@@ -3,7 +3,7 @@
 
 require_once "navegacao.php";
 require_once "paginas/header.php";
-
+//se passar da session ira direto para pagina dashboard
 if($_SESSION) {
     if(array_key_exists('logado', $_SESSION)) {
         header("Location: /paginas/dashboard.php");
@@ -55,8 +55,8 @@ if($_SESSION) {
     $(document).ready(function(){
 
         $("#login").click(() => {
-            let email = $('#email').val();
-            let senha = $('#senha').val();
+            let email = $('#email').val();// let é uma variavel, só funciona com o javascript 'novo'
+            let senha = $('#senha').val();// let é uma variavel, só funciona com o javascript 'novo'
 
             if( email !== "" && senha !== "" ) {
                 $.ajax({
@@ -64,7 +64,7 @@ if($_SESSION) {
                     url: "login_session.php",
                     data: { email: email, senha: senha }
                 }).done(function( data ) {
-                    if(data.status !== 200 ) {
+                    if(data.status !== 200 ) {//200 tudo deu certo
                         alert(`${data.message}`);
                     } else {
                         alert(`Seja bem vindo ao sistema do Ganço e do Wiliiam`);

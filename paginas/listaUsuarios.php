@@ -19,7 +19,7 @@
             ?>
                 <tr>
                     <td><?=$pessoa->id;?></td>
-                    <td><?=ucfirst(strtolower($pessoa->nome));?></td>
+                    <td><?=ucfirst(strtolower($pessoa->nome));?></td> //ucfirst(strtolower pra deixar a primeira letra em miusculo e o restante em minusculo
                     <td><?=ucfirst(strtolower($pessoa->email));?></td>
                     <td><?=ucfirst(strtolower($pessoa->perfil));?></td>
                     <td>

@@ -1,7 +1,7 @@
 <?php
 
 $pdo = conectar();
-
+//está selecionando...
 $detalhesPessoa = $pdo->prepare("SELECT 
     pessoa.id       AS id,
     pessoa.nome     AS nome,
