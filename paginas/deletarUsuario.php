@@ -12,6 +12,7 @@ $deletarPessoa->bindParam(":id", $id);
 if ($deletarPessoa->execute()){
     header('Location: listaUsuarios.php');
 }
+
 else{
     echo "Erro ao deletar";
     print_r($deletarPessoa->errorInfo());

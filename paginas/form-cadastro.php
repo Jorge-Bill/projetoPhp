@@ -5,18 +5,19 @@ require_once "header.php";
 ?>
 
     <div class="col-md-7 col-md-offset-2 col-xs-12">
+        <h1 class="text-center">Cadastrar</h1>
         <form method="POST" action="cadastrarPessoa.php" enctype="multipart/form-data">
             <div class="form-group">
                 <label for="nomePessoa">Nome</label>
-                <input type="text" class="form-control" id="nomePessoa" name="nomePessoa" placeholder="Nome">
+                <input type="text" class="form-control" id="nomePessoa" name="nomePessoa" placeholder="Nome" required >
             </div>
             <div class="form-group">
                 <label for="emailPessoa">E-mail</label>
-                <input type="email" class="form-control" id="emailPessoa" name="emailPessoa" placeholder="E-mail">
+                <input type="email" class="form-control" id="emailPessoa" name="emailPessoa" placeholder="E-mail" required>
             </div>
             <div class="form-group">
                 <label for="senhaPessoa">Senha</label>
-                <input type="password" class="form-control" id="senhaPessoa" name="senhaPessoa" placeholder="Senha">
+                <input type="password" class="form-control" id="senhaPessoa" name="senhaPessoa" placeholder="Senha" required>
             </div>
             <div class="form-group">
                 <label for="imagemPessoa">Foto</label>
@@ -31,7 +32,10 @@ require_once "header.php";
                 </select>
             </div>
             <div class="clearfix"></div>
-            <button type="submit" class="btn btn-primary pull-right">Cadastrar</button>
+            <div class="pull-right">
+                <a class="btn btn-default" href="listaUsuarios.php"> Cancelar</a>
+                <button type="submit" class="btn btn-primary">Cadastrar</button>
+            </div>
         </form>
     </div>
 

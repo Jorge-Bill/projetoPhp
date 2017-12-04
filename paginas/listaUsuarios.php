@@ -7,6 +7,7 @@ require_once "header.php";
 <div class="panel panel-default">
     <div class="panel-heading">
         <h1 class="text-center">Lista de usuários</h1>
+        <a class="btn btn-primary" href="form-cadastro.php">Cadastrar usuario</a>
     </div>
     <div class="panel-body">
         <table class="table">
@@ -20,15 +21,14 @@ require_once "header.php";
             </tr>
             </thead>
             <tbody>
-            <?php foreach ($detalhesPessoa as $pessoa) {
-            ?>
+            <?php foreach ($detalhesPessoa as $pessoa): ?>
                 <tr>
                     <td><?=$pessoa->id;?></td>
-                    <td><?=ucfirst(strtolower($pessoa->nome));?></td> //ucfirst(strtolower pra deixar a primeira letra em miusculo e o restante em minusculo
+                    <td><?=ucfirst(strtolower($pessoa->nome));?></td>
                     <td><?=ucfirst(strtolower($pessoa->email));?></td>
                     <td><?=ucfirst(strtolower($pessoa->perfil));?></td>
                     <td>
-                        <a class="btn btn-sm btn-warning" href="#">
+                        <a class="btn btn-sm btn-warning" href="EditarForm.php?id=<?=$pessoa->id;?>">
                             Editar
                         </a>
                         |
@@ -37,7 +37,7 @@ require_once "header.php";
                         </a>
                     </td>
                 </tr>
-            <?php } ?>
+            <?php endforeach; ?>
             </tbody>
         </table>
     </div>

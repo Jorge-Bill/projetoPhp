@@ -31,7 +31,6 @@
                     <ul class="dropdown-menu">
                         <li><a href="listaUsuarios.php">Listar usuarios</a></li>
                         <li><a href="form-cadastro.php">Cadastrar usuario</a></li>
-                        <li><a href="form-cadastro.php">Editar usuario</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">

@@ -21,13 +21,13 @@ if($_SESSION) {
                 <label for="email" class=" control-label">Usuário</label>
 
                 <div class="">
-                    <input class="form-control" id="email" name="email" placeholder="Digite seu usuário">
+                    <input class="form-control" id="email" name="email" placeholder="Digite seu usuário " required>
                 </div>
             </div>
             <div class="form-group">
                 <label for="senha" class=" control-label">Senha</label>
                 <div class="">
-                    <input type="password" maxlength="6" class="form-control" id="senha" name="senha" placeholder="Digite sua senha">
+                    <input type="password" maxlength="6" class="form-control" id="senha" name="senha" placeholder="Digite sua senha" required>
                 </div>
             </div>
             <div class="form-group">

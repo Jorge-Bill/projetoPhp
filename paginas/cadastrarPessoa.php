@@ -34,7 +34,7 @@ $cadastrarPessoa->bindParam(":senha", $senha, PDO::PARAM_STR);
 $cadastrarPessoa->bindParam(":email", $email, PDO::PARAM_STR);
 
 if ($cadastrarPessoa->execute()){
-    header('Location: listaUsuarios.php');
+        header('Location: listaUsuarios.php');
 }
 else{
     echo "Erro ao cadastrar";
