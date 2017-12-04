@@ -7,7 +7,6 @@ require_once "header.php";
 <div class="panel panel-default">
     <div class="panel-heading">
         <h1 class="text-center">Lista de usuários</h1>
-        <a class="btn btn-primary" href="form-cadastro.php">Cadastrar usuario</a>
     </div>
     <div class="panel-body">
         <table class="table">
@@ -28,7 +27,11 @@ require_once "header.php";
                     <td><?=ucfirst(strtolower($pessoa->email));?></td>
                     <td><?=ucfirst(strtolower($pessoa->perfil));?></td>
                     <td>
-                        <a class="btn btn-sm btn-warning" href="EditarForm.php?id=<?=$pessoa->id;?>">
+                        <a class="btn btn-sm btn-primary" href="perfilUsuario.php?id=<?=$pessoa->id;?>">
+                            Perfil
+                        </a>
+                        |
+                        <a class="btn btn-sm btn-warning" href="editarUsuario.php?id=<?=$pessoa->id;?>">
                             Editar
                         </a>
                         |
