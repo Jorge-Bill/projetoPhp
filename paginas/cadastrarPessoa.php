@@ -7,36 +7,49 @@ $nome       = (isset($_REQUEST['nomePessoa'])) ? $_REQUEST['nomePessoa'] : '';
 $email      = (isset($_REQUEST['emailPessoa'])) ? $_REQUEST['emailPessoa'] : '';
 $senha      = (isset($_REQUEST['senhaPessoa'])) ? $_REQUEST['senhaPessoa'] : '';
 $perfil     = (isset($_REQUEST['perfilPessoa'])) ? $_REQUEST['perfilPessoa'] : '';
-
-
 $foto       = (isset($_FILES['imagemPessoa'])) && $_FILES['imagemPessoa']['size'] ? $_FILES['imagemPessoa'] : '';
-$nomeFoto   = $foto['name'];
-$tipo       = $foto['type'];
-$tamanho    = $foto['size'];
-$destino    = '../imagens/';
 
+
+var_dump($nome);
+var_dump($email);
+var_dump($senha);
+var_dump($perfil);
 var_dump($foto);
-var_dump($nomeFoto);
-var_dump($tipo);
-var_dump($tamanho);
-var_dump($destino);
 
-$uploadfile = $destino . basename($_FILES['imagemPessoa']['name']);
+if (!empty($foto)){
 
-if(!preg_match('/^image\/(pjpeg|jpeg|png|gif|bmp)$/', $tipo))
-{
-    print_r ('Isso não é uma imagem válida');
-    exit;
+    $nomeFoto   = $foto['name'];
+    $tipo       = $foto['type'];
+    $tamanho    = $foto['size'];
+    $destino    = '../imagens/';
+
+    var_dump($foto);
+    var_dump($nomeFoto);
+    var_dump($tipo);
+    var_dump($tamanho);
+    var_dump($destino);
+
+
+
+    $uploadfile = $destino . basename($_FILES['imagemPessoa']['name']);
+
+    if(!preg_match('/^image\/(pjpeg|jpeg|png|gif|bmp)$/', $tipo))
+    {
+        print_r ('Isso não é uma imagem válida');
+        exit;
+    }
+
+    if(!file_exists($destino)):
+        mkdir($destino);
+    endif;
+
+
+    if (!move_uploaded_file($_FILES['imagemPessoa']['tmp_name'], $uploadfile)):
+        print_r( "Houve um erro ao gravar arquivo na pasta de destino!");
+    endif;
 }
 
-if(!file_exists($destino)):
-    mkdir($destino);
-endif;
 
-
-if (!move_uploaded_file($_FILES['imagemPessoa']['tmp_name'], $uploadfile)):
-    print_r( "Houve um erro ao gravar arquivo na pasta de destino!");
-endif;
 
 $pdo = conectar();
 
@@ -57,22 +70,3 @@ else{
     echo "Erro ao cadastrar";
     print_r($cadastrarPessoa->errorInfo());
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
-//$destino = 'imagens/' . $_FILES['arquivo']['name'];
-//$arquivo_tmp = $_FILES['arquivo']['tmp_name'];
-//move_uploaded_file( $arquivo_tmp, $destino  );

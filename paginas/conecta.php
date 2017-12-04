@@ -11,5 +11,3 @@ header('Content-Type: text/html; charset=UTF-8');
 $ano        = date('Y');
 $hoje		= date('Y-m-d');
 ?>
-
-
