@@ -21,7 +21,6 @@ else{
 }
 ?>
 
-    </table>
     <div class="col-md-7 col-md-offset-2 col-xs-12">
         <h1 class="text-center">Perfil</h1>
         <div class="modal-dialog modal-sm-12" >
@@ -39,6 +38,7 @@ else{
                 </tr>
             </table>
         </div>
+    </div>
             <!--            <strong>Nome:</strong>-->
             <!--            <p>-->
             <!--                --><?php //echo $editarPessoa['nome']?>
@@ -55,7 +55,7 @@ else{
             <!--            <p>-->
             <!--                --><?php //echo $editarPessoa['foto']?>
             <!--            </p>-->
-    </div>
+
 
 <?php
 require_once "footer.php";
