@@ -24,7 +24,7 @@ print_r($editarPessoa->errorInfo());
 
 <div class="col-md-7 col-md-offset-2 col-xs-12">
     <h1 class="text-center">Editar</h1>
-    <form method="POST" action="editarUsuario.php">
+    <form method="POST" action="editarUsuario.php" enctype="multipart/form-data">
         <div class="form-group">
 <!--            <label for="id">Id</label>-->
             <input class="form-control" type='hidden' name='id' value="<?php echo $editarPessoa['id']?>">
@@ -41,11 +41,24 @@ print_r($editarPessoa->errorInfo());
             <label for="senhaPessoa">Senha</label>
             <input type="text" value="<?php echo $editarPessoa['senha']?>" class="form-control" id="senhaPessoa" name="senhaPessoa" placeholder="Senha" required>
         </div>
+
+        <?php
+            if (!empty($editarPessoa['foto'])): ?>
+                <div class="form-group">
+                    <img class="thumbnail" src="/../imagens/<?php echo $editarPessoa['foto']; ?>" width="500" height="auto" alt="">
+                </div>       
+        <?php
+            else :
+                print_r("Que tal adicionar uma foto?");
+            endif;
+
+        ?>
         <div class="form-group">
             <label for="imagemPessoa">Foto</label>
             <input type="file" name="imagemPessoa" id="imagemPessoa">
             <p class="help-block">Faça upload de uma imagem</p>
         </div>
+        
         <div class="form-group col-md-4">
             <label>Perfil</label>
             <select value="<?php echo $editarPessoa['perfil']?>" class="form-control" id="perfilPessoa" name="perfilPessoa">
