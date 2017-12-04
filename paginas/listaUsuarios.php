@@ -7,6 +7,9 @@ require_once "header.php";
 <div class="panel panel-default">
     <div class="panel-heading">
         <h1 class="text-center">Lista de usuários</h1>
+        <a class="btn btn-primary" href="form-cadastro.php">
+            Criar Usuario
+        </a>
     </div>
     <div class="panel-body">
         <table class="table">
@@ -20,9 +23,9 @@ require_once "header.php";
             </tr>
             </thead>
             <tbody>
-            <?php foreach ($detalhesPessoa as $pessoa): ?>
+            <?php foreach ($detalhesPessoa as $key => $pessoa): ?>
                 <tr>
-                    <td><?=$pessoa->id;?></td>
+                    <td><?= $key + 1; ?></td>
                     <td><?=ucfirst(strtolower($pessoa->nome));?></td>
                     <td><?=ucfirst(strtolower($pessoa->email));?></td>
                     <td><?=ucfirst(strtolower($pessoa->perfil));?></td>
@@ -31,7 +34,7 @@ require_once "header.php";
                             Perfil
                         </a>
                         |
-                        <a class="btn btn-sm btn-warning" href="editarUsuario.php?id=<?=$pessoa->id;?>">
+                        <a class="btn btn-sm btn-warning" href="editarForm.php?id=<?=$pessoa->id;?>">
                             Editar
                         </a>
                         |

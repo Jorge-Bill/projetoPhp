@@ -21,12 +21,9 @@ $updatePessoa->bindParam(":email", $email);
 
 
 if ($updatePessoa->execute()){
-    header('Location: listaUsuarios.php');
-}
-else{
-    echo "Erro ao editar";
-    print_r($updatePessoa->errorInfo());
-}
-
-?>
-
+        header('Location: listaUsuarios.php');
+    }
+ else{
+        echo "Erro ao editar";
+     print_r($updatePessoa->errorInfo());
+ }
