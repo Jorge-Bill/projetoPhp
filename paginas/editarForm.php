@@ -14,6 +14,8 @@ $editarPessoa->bindParam(":id", $id);
 
 if ($editarPessoa->execute()){
     $editarPessoa = $editarPessoa->fetch(PDO::FETCH_ASSOC);
+    var_dump($editarPessoa);
+
 }
 else{
     echo "Erro ao cadastrar";
@@ -26,8 +28,8 @@ else{
         <h1 class="text-center">Editar</h1>
         <form method="POST" action="editarUsuario.php">
             <div class="form-group">
-                <label for="id">Id</label>
-                <input class="form-control" type='number' name='id' value="<?php echo $editarPessoa['id']?>" disabled>
+<!--                <label for="id">Id</label>-->
+                <input class="form-control" type='hidden' name='id' value="<?php echo $editarPessoa['id']?>">
             </div>
             <div class="form-group">
                 <label for="nomePessoa">Nome</label>

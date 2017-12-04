@@ -1,7 +1,7 @@
 <?php
 require_once "conecta.php";
 
-$id         = $_REQUEST['id'];
+$id         = (isset($_REQUEST['id'])) ? $_REQUEST['id'] : '';
 $nome       = (isset($_REQUEST['nomePessoa'])) ? $_REQUEST['nomePessoa'] : '';
 $perfil     = (isset($_REQUEST['perfilPessoa'])) ? $_REQUEST['perfilPessoa'] : '';
 $senha      = (isset($_REQUEST['senhaPessoa'])) ? $_REQUEST['senhaPessoa'] : '';
