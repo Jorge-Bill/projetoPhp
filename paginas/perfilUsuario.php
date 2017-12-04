@@ -21,26 +21,40 @@ else{
 }
 ?>
 
+    </table>
     <div class="col-md-7 col-md-offset-2 col-xs-12">
         <h1 class="text-center">Perfil</h1>
-        <div class="modal-dialog modal-sm" >
-            <p>Nome:</p>
-            <p>
-                <?php echo $editarPessoa['nome']?>
-            </p>
-            <p>Email:</p>
-            <p>
-                <?php echo $editarPessoa['email']?>
-            </p>
-            <p>Perfil</p>
-            <p>
-                <?php echo $editarPessoa['perfil']?>
-            </p>
+        <div class="modal-dialog modal-sm-12" >
+            <table class="table table-condensed text-center">
+                <tr>
+                    <td><strong>Nome:</strong></td>
+                    <td><strong>Email:</strong></td>
+                    <td><strong>Perfil:</strong></td>
+                </tr>
 
-            <p>
-                <?php echo $editarPessoa['foto']?>
-            </p>
+                <tr>
+                    <td><?php echo $editarPessoa['nome']?></td>
+                    <td><?php echo $editarPessoa['email']?></td>
+                    <td><?php echo $editarPessoa['perfil']?></td>
+                </tr>
+            </table>
         </div>
+            <!--            <strong>Nome:</strong>-->
+            <!--            <p>-->
+            <!--                --><?php //echo $editarPessoa['nome']?>
+            <!--            </p>-->
+            <!--            <strong>Email:</strong>-->
+            <!--            <p>-->
+            <!--                --><?php //echo $editarPessoa['email']?>
+            <!--            </p>-->
+            <!--            <strong>Perfil:</strong>-->
+            <!--            <p>-->
+            <!--                --><?php //echo $editarPessoa['perfil']?>
+            <!--            </p>-->
+            <!---->
+            <!--            <p>-->
+            <!--                --><?php //echo $editarPessoa['foto']?>
+            <!--            </p>-->
     </div>
 
 <?php
