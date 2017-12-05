@@ -1,12 +1,10 @@
 <?php
-//session_start();
 
 require_once "navegacao.php";
-require_once "paginas/header.php";
 //se passar da session ira direto para pagina dashboard
 if($_SESSION) {
     if(array_key_exists('logado', $_SESSION)) {
-        header("Location: /paginas/listaUsuarios.php");
+        header("Location:/navegacao.php?page=listaUsuarios");
     }
 }
 
@@ -14,7 +12,7 @@ if($_SESSION) {
 
 <h1 class="text-center">Login <span class="glyphicon glyphicon-flash"></span></h1>
 <div class="container-fluid centered" >
-    <div class="container col-md-6 col-md-offset-3 col-xs-12">
+    <div class="container col-md-4 col-md-offset-4 col-xs-12">
         <form class="form-horizontal">
             <div class="form-group">
                 <label for="email" class=" control-label">Usuário</label>
@@ -34,7 +32,7 @@ if($_SESSION) {
                     <h5>Escolha o perfil de usuario</h5>
                     <div class="">
                         <select class="form-horizontal" id="perfil">
-                            <option value="admin">Admin</option>
+                            <option value="Admin">Admin</option>
                             <option value="basico">basico</option>
                         </select>
                     </div>
@@ -49,7 +47,7 @@ if($_SESSION) {
     </div>
 </div>
 
-<?php require_once "paginas/footer.php"; ?>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
 <script>
     $(document).ready(function(){
@@ -68,7 +66,7 @@ if($_SESSION) {
                         alert(`${data.message}`);
                     } else {
                         alert(`Seja bem vindo ao sistema do Ganço e do Wiliiam`);
-                        window.location = "paginas/listaUsuarios.php";
+                        window.location = "/navegacao.php?page=listaUsuarios";
                     }
                 });
             } else {

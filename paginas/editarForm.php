@@ -1,9 +1,5 @@
 <?php
-require_once "../navegacao.php";
-require_once "conecta.php";
-require_once "header.php";
-
-
+//print_r($_SESSION);
 $id = $_REQUEST['id'];
 
 $pdo = conectar();
@@ -25,7 +21,7 @@ print_r($editarPessoa->errorInfo());
 
 <div class="col-md-7 col-md-offset-2 col-xs-12">
     <h1 class="text-center">Editar</h1>
-    <form method="POST" action="editarUsuario.php" enctype="multipart/form-data">
+    <form method="POST" action="/navegacao.php?page=editarUsuario" enctype="multipart/form-data">
         <div class="form-group">
 <!--            <label for="id">Id</label>-->
             <input class="form-control" type='hidden' name='id' value="<?php echo $editarPessoa['id']?>">
@@ -69,12 +65,13 @@ print_r($editarPessoa->errorInfo());
         </div>
         <div class="clearfix"></div>
         <div class="pull-right">
+<<<<<<< HEAD
             <a class="btn btn-default" href="listaUsuarios.php"> Cancelar</a>
             <button type="submit" class="btn btn-primary"> Salvar</button>
+=======
+            <a class="btn btn-default" href="/navegacao.php?page=listaUsuarios"> Cancelar</a>
+            <button type="submit" class="btn btn-primary">Salvar</button>
+>>>>>>> 851915a43640eaf8a77c7ecb1eb3dd9cdd564e77
         </div>
     </form>
 </div>
-
-<?php
-require_once "footer.php";
-?>

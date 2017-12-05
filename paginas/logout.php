@@ -1,6 +1,10 @@
 <?php
-require_once "../navegacao.php";
+
 if(isset($_SESSION['logado'])){
     session_destroy();
-    header("Location: ../index.php");
 }
+
+?>
+<script>
+    window.location = "http://localhost:8000/index.php";
+</script>
