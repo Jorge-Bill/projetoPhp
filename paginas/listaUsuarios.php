@@ -1,9 +1,9 @@
 <?php
 require_once "consultarPessoa.php";
-
 print_r($_SESSION);
 //echo $_SESSION['email'];
 ?>
+
 <div class="panel panel-default">
     <div class="panel-heading">
         <h1 class="text-center">Lista de usuários</h1>
@@ -30,7 +30,7 @@ print_r($_SESSION);
                     <td><?=ucfirst(strtolower($pessoa->email));?></td>
                     <td><?=ucfirst(strtolower($pessoa->perfil));?></td>
                     <td>
-                        <a class="btn btn-sm btn-success" href="/navegacao.php?page=perfilUsuario.&id=<?=$pessoa->id;?>">
+                        <a class="btn btn-sm btn-success" href="/navegacao.php?page=perfilUsuario&id=<?=$pessoa->id;?>">
                             <span class="glyphicon glyphicon-user"></span> Perfil
                         </a>
                         <a class="btn btn-sm btn-warning" href="/navegacao.php?page=editarForm&id=<?=$pessoa->id;?>">

@@ -5,3 +5,8 @@
 footer{
     background-color: #fff !important;
 }
+.fotoPerfil{
+    width: 240px;
+    height: 240px;
+    /*bottom: 100%;*/
+}

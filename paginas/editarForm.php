@@ -65,6 +65,7 @@ print_r($editarPessoa->errorInfo());
         </div>
         <div class="clearfix"></div>
         <div class="pull-right">
+
             <a class="btn btn-default" href="/navegacao.php?page=listaUsuarios"> Cancelar</a>
             <button type="submit" class="btn btn-primary">Salvar</button>
         </div>
