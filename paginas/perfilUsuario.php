@@ -1,6 +1,5 @@
 <?php
-require_once "conecta.php";
-require_once "header.php";
+
 //require_once "editarUsuario.php";
 
 $id = $_REQUEST['id'];
@@ -12,12 +11,10 @@ $perfil = $pdo->prepare('SELECT * FROM pessoa WHERE id = :id');
 $perfil->bindParam(":id", $id);
 
 
-
 if ($perfil->execute()){
     $perfil = $perfil->fetch(PDO::FETCH_ASSOC);
 }
 ?>
-
     <div class="container">
         <div class="row">
             <div class="panel panel-default">
@@ -28,7 +25,7 @@ if ($perfil->execute()){
                         <?php
                         if (!empty($perfil['foto'])): ?>
                             <div class="container-fluid">
-                                <a href=”editarForm.php> <img class="thumbnail fotoPerfil"src="../imagens/<?php echo $perfil['foto'];?> "></a>
+                                <a href=”/navegacao.php?page=listaUsuarios&id=<?=$pessoa->id;?>"> <img class="thumbnail fotoPerfil"src="../imagens/<?php echo $perfil['foto'];?> "></a>
                             </div>
                         <?php endif; ?>
                     </div>
@@ -43,15 +40,15 @@ if ($perfil->execute()){
                         </ul>
                         <hr>
                         <div class="pull-right">
-                            <a class="btn btn-success glyphicon glyphicon-tasks" href="listaUsuarios.php"> Voltar</a>
+                            <a class="btn btn-success glyphicon glyphicon-tasks" href="/navegacao.php?page=listaUsuarios&id=<?=$pessoa->id;?>"> Voltar</a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-        <!--teste-->
 
+        <!--teste-->
 <!--    --><?php
 //    if (!empty($perfil['foto'])): ?>
 <!--        <div class="container-fluid">-->
@@ -84,6 +81,5 @@ if ($perfil->execute()){
 <!--            </div>-->
 <!--        </div>-->
 <!--    </div>-->
-
 <?php
 require_once "footer.php";?>

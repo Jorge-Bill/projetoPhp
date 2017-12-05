@@ -65,13 +65,9 @@ print_r($editarPessoa->errorInfo());
         </div>
         <div class="clearfix"></div>
         <div class="pull-right">
-<<<<<<< HEAD
-            <a class="btn btn-default" href="listaUsuarios.php"> Cancelar</a>
-            <button type="submit" class="btn btn-primary"> Salvar</button>
-=======
+
             <a class="btn btn-default" href="/navegacao.php?page=listaUsuarios"> Cancelar</a>
             <button type="submit" class="btn btn-primary">Salvar</button>
->>>>>>> 851915a43640eaf8a77c7ecb1eb3dd9cdd564e77
         </div>
     </form>
 </div>
