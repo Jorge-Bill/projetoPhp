@@ -48,7 +48,6 @@ if (!empty($foto)){
     endif;
 }
 
-
 $pdo = conectar();
 
 $sql = "UPDATE pessoa SET nome=:nome, foto=:foto, perfil=:perfil, senha=:senha, email=:email WHERE id=:id;";
