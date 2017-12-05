@@ -1,8 +1,5 @@
 <?php
 
-require_once "../navegacao.php";
-require_once "conecta.php";
-
 $nome       = (isset($_REQUEST['nomePessoa'])) ? $_REQUEST['nomePessoa'] : '';
 $email      = (isset($_REQUEST['emailPessoa'])) ? $_REQUEST['emailPessoa'] : '';
 $senha      = (isset($_REQUEST['senhaPessoa'])) ? $_REQUEST['senhaPessoa'] : '';
@@ -21,7 +18,7 @@ if (!empty($foto)){
     $nomeFoto   = $foto['name'];
     $tipo       = $foto['type'];
     $tamanho    = $foto['size'];
-    $destino    = '../imagens/';
+    $destino    = 'imagens/';
 
     var_dump($foto);
     var_dump($nomeFoto);
@@ -64,8 +61,16 @@ $cadastrarPessoa->bindParam(":senha", $senha);
 $cadastrarPessoa->bindParam(":email", $email);
 
 if ($cadastrarPessoa->execute()){
-    header('Location: listaUsuarios.php');
+//    header('Location: /navegacao.php?page=listaUsuarios');
 }
+
+?>
+    <script>
+        window.location = "/navegacao.php?page=listaUsuarios";
+    </script>
+<?php
+
+?>
 else{
     echo "Erro ao cadastrar";
     print_r($cadastrarPessoa->errorInfo());

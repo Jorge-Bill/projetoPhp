@@ -1,5 +1,4 @@
 <?php
-require_once "conecta.php";
 
 $id         = (isset($_REQUEST['id'])) ? $_REQUEST['id'] : '';
 $nome       = (isset($_REQUEST['nomePessoa'])) ? $_REQUEST['nomePessoa'] : '';
@@ -20,7 +19,7 @@ if (!empty($foto)){
     $nomeFoto   = $foto['name'];
     $tipo       = $foto['type'];
     $tamanho    = $foto['size'];
-    $destino    = '../imagens/';
+    $destino    = 'imagens/';
 
     var_dump($foto);
     var_dump($nomeFoto);
@@ -64,9 +63,15 @@ $updatePessoa->bindParam(":email", $email);
 
 
 if ($updatePessoa->execute()){
-    header('Location: listaUsuarios.php');
+//    header('Location: /navegacao.php?page=listaUsuarios');
+    ?>
+    <script>
+        window.location = "/navegacao.php?page=listaUsuarios";
+    </script>
+<?php
     }
  else{
         echo "Erro ao editar";
         print_r($updatePessoa->errorInfo());
  }
+?>

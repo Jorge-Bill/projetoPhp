@@ -1,8 +1,7 @@
 <?php
-require_once "../navegacao.php";
-require_once "conecta.php";
 require_once "consultarPessoa.php";
-require_once "header.php";
+
+print_r($_SESSION);
 ?>
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -20,7 +19,7 @@ require_once "header.php";
             </tr>
             </thead>
             <tbody>
-            <a class="btn btn-primary" href="form-cadastro.php">
+            <a class="btn btn-primary" href="/navegacao.php?page=form-cadastro">
                 <span class="glyphicon glyphicon-plus"></span> Criar Usuario
             </a>
             <?php foreach ($detalhesPessoa as $key => $pessoa): ?>
@@ -30,13 +29,13 @@ require_once "header.php";
                     <td><?=ucfirst(strtolower($pessoa->email));?></td>
                     <td><?=ucfirst(strtolower($pessoa->perfil));?></td>
                     <td>
-                        <a class="btn btn-sm btn-success" href="perfilUsuario.php?id=<?=$pessoa->id;?>">
+                        <a class="btn btn-sm btn-success" href="/navegacao.php?page=perfilUsuario.&id=<?=$pessoa->id;?>">
                             <span class="glyphicon glyphicon-user"></span> Perfil
                         </a>
-                        <a class="btn btn-sm btn-warning" href="editarForm.php?id=<?=$pessoa->id;?>">
+                        <a class="btn btn-sm btn-warning" href="/navegacao.php?page=editarForm&id=<?=$pessoa->id;?>">
                           <span class="glyphicon glyphicon-pencil"></span> Editar
                         </a>
-                        <a class="btn btn-sm btn-danger" href="deletarUsuario.php?id=<?=$pessoa->id;?>">
+                        <a class="btn btn-sm btn-danger" href="/navegacao.php?page=deletarUsuario&id=<?=$pessoa->id;?>">
                            <span class="glyphicon glyphicon-trash"></span>  Excluir
                         </a>
                     </td>
@@ -46,5 +45,3 @@ require_once "header.php";
         </table>
     </div>
 </div>
-
-<?php require_once "footer.php"; ?>

@@ -1,5 +1,4 @@
 <?php
-require_once "conecta.php";
 
 $id  = $_REQUEST['id'];
 
@@ -10,7 +9,7 @@ $deletarPessoa = $pdo->prepare('DELETE FROM pessoa WHERE id = :id');
 $deletarPessoa->bindParam(":id", $id);
 
 if ($deletarPessoa->execute()){
-    header('Location: listaUsuarios.php');
+    header('Location: /navegacao.php?page=listaUsuarios');
 }
 
 else{
