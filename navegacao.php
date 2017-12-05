@@ -5,10 +5,10 @@ require_once "paginas/header.php";
 
 session_start();
 
-if($_GET && array_key_exists('logado', $_SESSION)) {
-    $page = $_GET['page'];
+if($_REQUEST && array_key_exists('logado', $_SESSION)) {
+    $page = $_REQUEST['page'];
 
-    if(array_key_exists('page', $_GET)) {
+    if(array_key_exists('page', $_REQUEST)) {
 
         $path = __DIR__ . '/paginas/' . $page. '.php';
 

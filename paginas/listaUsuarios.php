@@ -2,6 +2,7 @@
 require_once "consultarPessoa.php";
 
 print_r($_SESSION);
+//echo $_SESSION['email'];
 ?>
 <div class="panel panel-default">
     <div class="panel-heading">

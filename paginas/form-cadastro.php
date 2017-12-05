@@ -1,17 +1,17 @@
 
 <div class="col-md-7 col-md-offset-2 col-xs-12">
     <h1 class="text-center">Cadastrar</h1>
-    <form method="POST" action="/navegacao.php?page=cadastrarPessoa" enctype="multipart/form-data">
+    <form>
         <div class="form-group">
-            <label for="nomePessoa">Nome</label>
+            <label for="nomePessoa">Nome*</label>
             <input type="text" class="form-control" id="nomePessoa" name="nomePessoa" placeholder="Nome" required >
         </div>
         <div class="form-group">
-            <label for="emailPessoa">E-mail</label>
+            <label for="emailPessoa">E-mail*</label>
             <input type="email" class="form-control" id="emailPessoa" name="emailPessoa" placeholder="E-mail" required>
         </div>
         <div class="form-group">
-            <label for="senhaPessoa">Senha</label>
+            <label for="senhaPessoa">Senha*</label>
             <input type="password" class="form-control" id="senhaPessoa" name="senhaPessoa" placeholder="Senha" required>
         </div>
         <div class="form-group">
@@ -20,7 +20,7 @@
             <p class="help-block">Faça upload de uma imagem</p>
         </div>
         <div class="form-group col-md-4">
-            <label>Perfil</label>
+            <label>Perfil*</label>
             <select class="form-control" id="perfilPessoa" name="perfilPessoa">
                 <option>Admin</option>
                 <option>Basico</option>
@@ -29,7 +29,40 @@
         <div class="clearfix"></div>
         <div class="pull-right">
             <a class="btn btn-default" href="/navegacao.php?page=listaUsuarios"> Cancelar</a>
-            <button type="submit" class="btn btn-primary">Cadastrar</button>
+            <button type="button" class="btn btn-primary" id="cadastrar">Cadastrar</button>
         </div>
     </form>
 </div>
+
+<!--<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>-->
+
+<script>
+    $(document).ready(function(){
+
+        $("#cadastrar").click(() => {
+            let nome    = $('#nomePessoa').val();
+            let email   = $('#emailPessoa').val();
+            let senha   = $('#senhaPessoa').val();
+            let foto    = $('#imagemPessoa').val();
+            let perfil  = $('#perfilPessoa').val();
+
+            if( nome !== "" && email !== "" && senha !== "" && perfil !== "") {
+                $.ajax({
+                    method: "POST",
+                    enctype: "multipart/form-data",
+                    url: "/navegacao.php?page=cadastrarPessoa",
+                    data: { nome: nome, email: email, senha: senha, foto: foto, perfil: perfil }
+                }).done(function( data ) {
+                    if(data.status !== 200 ) {
+                        alert(`${data.message}`);
+                    } else {
+                        alert(`Usuario cadastrado com sucesso`);
+                        window.location = "/navegacao.php?page=listaUsuarios";
+                    }
+                });
+            } else {
+                alert('Erro! preencha os campos');
+            }
+        });
+    });
+</script>

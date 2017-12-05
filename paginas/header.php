@@ -2,11 +2,12 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard</title>
+    <title>Ganso | William</title>
     <link rel="stylesheet" href="/../css/bootstrap.min.css">
     <link rel="stylesheet" href="/../css/estilos.css">
 </head>
 <body>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
@@ -27,7 +28,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Opções <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><p>Olá <?php  ?></p></li>
+                        <li><p>Olá <?php ?></p></li>
                         <li><a href="/navegacao.php?page=perfilUsuario.php">Perfil</a></li>
                         <li role="separator" class="divider"></li>
                         <li><a href="/navegacao.php?page=logout">Sair</a></li>

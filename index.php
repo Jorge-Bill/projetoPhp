@@ -47,33 +47,33 @@ if($_SESSION) {
     </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<!--<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>-->
 
-<script>
-    $(document).ready(function(){
+    <script>
+        $(document).ready(function(){
 
-        $("#login").click(() => {
-            let email = $('#email').val();// let é uma variavel, só funciona com o javascript 'novo'
-            let senha = $('#senha').val();// let é uma variavel, só funciona com o javascript 'novo'
+            $("#login").click(() => {
+                let email = $('#email').val();// let é uma variavel, só funciona com o javascript 'novo'
+                let senha = $('#senha').val();// let é uma variavel, só funciona com o javascript 'novo'
 
-            if( email !== "" && senha !== "" ) {
-                $.ajax({
-                    method: "POST",
-                    url: "login_session.php",
-                    data: { email: email, senha: senha }
-                }).done(function( data ) {
-                    if(data.status !== 200 ) {//200 tudo deu certo
-                        alert(`${data.message}`);
-                    } else {
-                        alert(`Seja bem vindo ao sistema do Ganço e do Wiliiam`);
-                        window.location = "/navegacao.php?page=listaUsuarios";
-                    }
-                });
-            } else {
-                console.error('BLA');
-            }
+                if( email !== "" && senha !== "" ) {
+                    $.ajax({
+                        method: "POST",
+                        url: "login_session.php",
+                        data: { email: email, senha: senha }
+                    }).done(function( data ) {
+                        if(data.status !== 200 ) {//200 tudo deu certo
+                            alert(`${data.message}`);
+                        } else {
+                            alert(`Seja bem vindo ao sistema do Ganço e do Wiliiam`);
+                            window.location = "/navegacao.php?page=listaUsuarios";
+                        }
+                    });
+                } else {
+                    console.error('Preencha os campos para realizar o login');
+                }
+            });
         });
-    });
-</script>
+    </script>
 </body>
 </html>
