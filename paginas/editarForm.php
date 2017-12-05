@@ -1,7 +1,8 @@
 <?php
+require_once "../navegacao.php";
 require_once "conecta.php";
 require_once "header.php";
-//require_once "editarUsuario.php";
+
 
 $id = $_REQUEST['id'];
 
