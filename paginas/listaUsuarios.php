@@ -1,9 +1,9 @@
 <?php
 require_once "consultarPessoa.php";
-//print_r($_SESSION);
-//echo $_SESSION['email'];
+$usuario = $_SESSION['usuario'];
 ?>
 
+<h3>Bem vindo, <?= $usuario['nome']; ?></h3>
 <div class="panel panel-default">
     <div class="panel-heading">
         <h1 class="text-center">Lista de usuários</h1>
@@ -33,12 +33,14 @@ require_once "consultarPessoa.php";
                         <a class="btn btn-sm btn-success" href="/navegacao.php?page=perfilUsuario&id=<?=$pessoa->id;?>">
                             <span class="glyphicon glyphicon-user"></span> Perfil
                         </a>
-                        <a class="btn btn-sm btn-warning" href="/navegacao.php?page=editarForm&id=<?=$pessoa->id;?>">
-                          <span class="glyphicon glyphicon-pencil"></span> Editar
-                        </a>
-                        <a class="btn btn-sm btn-danger" href="/navegacao.php?page=deletarUsuario&id=<?=$pessoa->id;?>">
-                           <span class="glyphicon glyphicon-trash"></span>  Excluir
-                        </a>
+                        <?php if($usuario['perfil'] == "Admin"): ?>
+                            <a class="btn btn-sm btn-warning" href="/navegacao.php?page=editarForm&id=<?=$pessoa->id;?>">
+                              <span class="glyphicon glyphicon-pencil"></span> Editar
+                            </a>
+                            <a class="btn btn-sm btn-danger" href="/navegacao.php?page=deletarUsuario&id=<?=$pessoa->id;?>">
+                               <span class="glyphicon glyphicon-trash"></span>  Excluir
+                            </a>
+                        <?php endif; ?>
                     </td>
                 </tr>
             <?php endforeach; ?>

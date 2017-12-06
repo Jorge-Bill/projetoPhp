@@ -34,7 +34,7 @@ if ($_POST) {
 
     if ($login) {
 
-        $_SESSION['email'] = $email;
+        $_SESSION['usuario'] = $login;
         $_SESSION['logado'] = true;
 
         echo json_encode($msg['results']['currect']);

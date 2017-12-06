@@ -18,7 +18,7 @@ if($_SESSION) {
                 <label for="email" class=" control-label">Usuário</label>
 
                 <div class="">
-                    <input class="form-control" id="email" name="email" placeholder="Digite seu usuário " required>
+                    <input class="form-control" id="email" name="email" autofocus placeholder="Digite seu usuário " required>
                 </div>
             </div>
             <div class="form-group">
@@ -38,11 +38,13 @@ if($_SESSION) {
                     </div>
                 </div>
             </div>
+            <script>
             <div class="form-group">
                 <div class="">
                     <button type="button" class="btn btn-primary pull-right" id="login">Entrar</button>
                 </div>
             </div>
+            </script>
         </form>
     </div>
 </div>

@@ -1,21 +1,7 @@
 <?php
 session_start();
 
-$email = $_SESSION['email'];
-
-$pdo = conectar();
-
-$mostrarNome = $pdo->prepare('SELECT * FROM pessoa WHERE email = :email');
-
-$mostrarNome->bindParam(":email", $email);
-
-if ($mostrarNome->execute()){
-    $mostrarNome = $mostrarNome->fetch(PDO::FETCH_ASSOC);
-}
-else{
-    echo "Erro ao cadastrar";
-    print_r($mostrarNome->errorInfo());
-}
+$usuario = $_SESSION['usuario'];
 
 ?>
 
@@ -51,12 +37,18 @@ else{
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Opções <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <?php
-                        if (!empty($mostrarNome['nome'])): ?>
-                        <a href="#" <li><p>Olá, <?php echo $mostrarNome['nome'];?></p></li></a>
+                        if (!empty($usuario['nome'])): ?>
+                            <li>
+                                <a href="#">Olá, <?php echo $usuario['nome'];?></a>
+                            </li>
                         <?php endif; ?>
-                        <li><a href="/navegacao.php?page=perfilUsuario.php">Perfil</a></li>
+                        <li>
+                            <a href="/navegacao.php?page=perfilUsuario.php">Perfil</a>
+                        </li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="/navegacao.php?page=logout">Sair</a></li>
+                        <li>
+                            <a href="/navegacao.php?page=logout">Sair</a>
+                        </li>
                     </ul>
                 </li>
             </ul>
