@@ -38,18 +38,15 @@ if($_SESSION) {
                     </div>
                 </div>
             </div>
-            <script>
+
             <div class="form-group">
                 <div class="">
                     <button type="button" class="btn btn-primary pull-right" id="login">Entrar</button>
                 </div>
             </div>
-            </script>
         </form>
     </div>
 </div>
-
-<!--<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>-->
 
     <script>
         $(document).ready(function(){
