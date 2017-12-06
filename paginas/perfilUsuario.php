@@ -25,7 +25,7 @@ if ($perfil->execute()){
                         <?php
                         if (!empty($perfil['foto'])): ?>
                             <div class="container-fluid">
-                                <a href=”/navegacao.php?page=listaUsuarios&id=<?=$pessoa->id;?>"> <img class="thumbnail fotoPerfil"src="../imagens/<?php echo $perfil['foto'];?> "></a>
+                                <a href=”/navegacao.php?page=editarForm&id=<?=$perfil->id;?>"> <img class="thumbnail fotoPerfil"src="../imagens/<?php echo $perfil['foto'];?> "></a>
                             </div>
                         <?php endif; ?>
                     </div>
