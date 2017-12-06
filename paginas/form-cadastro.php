@@ -34,10 +34,14 @@
     </form>
 </div>
 
-<!--<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>-->
-
 <script>
     $(document).ready(function(){
+
+        let form;
+        $('#imagemPessoa').change(function (event) {
+            form = new FormData();
+            form.append('foto', event.target.files[0]);
+        });
 
         $("#cadastrar").click(() => {
             let nome    = $('#nomePessoa').val();
@@ -47,22 +51,43 @@
             let perfil  = $('#perfilPessoa').val();
 
             if( nome !== "" && email !== "" && senha !== "" && perfil !== "") {
+                form.append('nome', nome);
+                form.append('email', email);
+                form.append('senha', senha);
+                form.append('foto', foto);
+                form.append('perfil', perfil);
+
                 $.ajax({
                     method: "POST",
-                    enctype: "multipart/form-data",
+                    processData: false,
+                    contentType: false,
                     url: "/navegacao.php?page=cadastrarPessoa",
-                    data: { nome: nome, email: email, senha: senha, foto: foto, perfil: perfil }
-                }).done(function( data ) {
-                    if(data.status !== 200 ) {
-                        alert(`${data.message}`);
-                    } else {
+                    data: form
+                })
+                .then(
+                    function success(data) {
                         alert(`Usuario cadastrado com sucesso`);
-                        window.location = "/navegacao.php?page=listaUsuarios";
+                                window.location = "/navegacao.php?page=listaUsuarios";
+                    },
+
+                    function fail(data, status) {
+                        alert(`${data.message}`);
                     }
-                });
-            } else {
+                );
+                //     .done(
+                //     function( data ) {
+                //     if(data.status !== 200 ) {
+                //         alert(`${data.message}`);
+                //     } else {
+                //         alert(`Usuario cadastrado com sucesso`);
+                //         window.location = "/navegacao.php?page=listaUsuarios";
+                //     }
+                // });
+            }
+            else {
                 alert('Erro! preencha os campos');
             }
+
         });
     });
 </script>
