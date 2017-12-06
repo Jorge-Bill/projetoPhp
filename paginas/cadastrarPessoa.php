@@ -1,7 +1,5 @@
 <?php
 
-//header('Content-Type: application/json');
-
 $msg = ['results' => [
     'currect' => [
         'status' => 200
@@ -14,46 +12,29 @@ $msg = ['results' => [
 
     if ($_POST) {
 
-        $nome = (isset($_POST['nome'])) ? $_POST['nome'] : '';
-        $email = (isset($_POST['email'])) ? $_POST['email'] : '';
-        $senha = (isset($_POST['senha'])) ? $_POST['senha'] : '';
-        $perfil = (isset($_POST['perfil'])) ? $_POST['perfil'] : '';
-        $foto = (isset($_FILES['foto'])) && $_FILES['foto']['size'] ? $_FILES['foto'] : '';
+        $pessoa = (object)[
+            'nome'      => $_POST['nome'],
+            'email'     => $_POST['email'],
+            'senha'     => $_POST['senha'],
+            'perfil'    => $_POST['perfil'],
+            'foto'      => $_FILES['foto']
+        ];
 
-        var_dump($nome);
-        var_dump($email);
-        var_dump($senha);
-        var_dump($perfil);
-        var_dump($foto);
+        $destino = 'imagens/';
 
-        if (!empty($foto)){
+        $uploadfile = $destino . basename($pessoa->foto['name']);
 
-            $nomeFoto   = $foto['name'];
-            $tipo       = $foto['type'];
-            $tamanho    = $foto['size'];
-            $destino    = 'imagens/';
+        if(!preg_match('/^image\/(pjpeg|jpeg|png|gif|bmp)$/', $pessoa->foto['type'])){
+            print_r ('Isso não é uma imagem válida');
+            exit;
+        }
 
-            var_dump($foto);
-            var_dump($nomeFoto);
-            var_dump($tipo);
-            var_dump($tamanho);
-            var_dump($destino);
+        if(!file_exists($destino)) {
+            mkdir($destino);
+        }
 
-            $uploadfile = $destino . basename($_FILES['foto']['name']);
-
-            if(!preg_match('/^image\/(pjpeg|jpeg|png|gif|bmp)$/', $tipo))
-            {
-                print_r ('Isso não é uma imagem válida');
-                exit;
-            }
-
-            if(!file_exists($destino)):
-                mkdir($destino);
-            endif;
-
-            if (!move_uploaded_file($_FILES['foto']['tmp_name'], $uploadfile)):
-                print_r( "Houve um erro ao gravar arquivo na pasta de destino!");
-            endif;
+        if (!move_uploaded_file($pessoa->foto['tmp_name'], $uploadfile)) {
+            print_r("Houve um erro ao gravar arquivo na pasta de destino!");
         }
 
         $pdo = conectar();
@@ -62,11 +43,11 @@ $msg = ['results' => [
 
         $cadastrarPessoa = $pdo->prepare($sql);
 
-        $cadastrarPessoa->bindParam(":nome", $nome);
-        $cadastrarPessoa->bindParam(":foto", $nomeFoto);
-        $cadastrarPessoa->bindParam(":perfil", $perfil);
-        $cadastrarPessoa->bindParam(":senha", $senha);
-        $cadastrarPessoa->bindParam(":email", $email);
+        $cadastrarPessoa->bindParam(":nome", $pessoa->nome);
+        $cadastrarPessoa->bindParam(":foto", $pessoa->foto['name']);
+        $cadastrarPessoa->bindParam(":perfil", $pessoa->perfil);
+        $cadastrarPessoa->bindParam(":senha", $pessoa->senha);
+        $cadastrarPessoa->bindParam(":email", $pessoa->email);
 
         if ($cadastrarPessoa->execute()){
             echo json_encode($msg['results']['currect']);
@@ -78,9 +59,6 @@ $msg = ['results' => [
         }
 
     }
-
-
-
 
 ?>
 

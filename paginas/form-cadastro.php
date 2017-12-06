@@ -16,7 +16,7 @@
         </div>
         <div class="form-group">
             <label for="imagemPessoa">Foto</label>
-            <input type="file" name="imagemPessoa" id="imagemPessoa">
+            <input type="file" name="imagemPessoa" id="imagemPessoa" required>
             <p class="help-block">Faça upload de uma imagem</p>
         </div>
         <div class="form-group col-md-4">
@@ -36,7 +36,6 @@
 
 <script>
     $(document).ready(function(){
-
         let form;
         $('#imagemPessoa').change(function (event) {
             form = new FormData();
@@ -50,7 +49,7 @@
             let foto    = $('#imagemPessoa').val();
             let perfil  = $('#perfilPessoa').val();
 
-            if( nome !== "" && email !== "" && senha !== "" && perfil !== "") {
+            if( nome && email && senha && perfil && foto) {
                 form.append('nome', nome);
                 form.append('email', email);
                 form.append('senha', senha);
@@ -67,27 +66,17 @@
                 .then(
                     function success(data) {
                         alert(`Usuario cadastrado com sucesso`);
-                                window.location = "/navegacao.php?page=listaUsuarios";
+                        window.location = "/navegacao.php?page=listaUsuarios";
                     },
 
                     function fail(data, status) {
                         alert(`${data.message}`);
                     }
                 );
-                //     .done(
-                //     function( data ) {
-                //     if(data.status !== 200 ) {
-                //         alert(`${data.message}`);
-                //     } else {
-                //         alert(`Usuario cadastrado com sucesso`);
-                //         window.location = "/navegacao.php?page=listaUsuarios";
-                //     }
-                // });
             }
             else {
                 alert('Erro! preencha os campos');
             }
-
         });
     });
 </script>
