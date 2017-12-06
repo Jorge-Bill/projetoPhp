@@ -52,7 +52,7 @@ else{
                     <ul class="dropdown-menu">
                         <?php
                         if (!empty($mostrarNome['nome'])): ?>
-                        <li><p>Olá <?php echo $mostrarNome['nome'];?></p></li>
+                        <a href="#" <li><p>Olá, <?php echo $mostrarNome['nome'];?></p></li></a>
                         <?php endif; ?>
                         <li><a href="/navegacao.php?page=perfilUsuario.php">Perfil</a></li>
                         <li role="separator" class="divider"></li>
