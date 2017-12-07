@@ -38,7 +38,6 @@ if($_SESSION) {
                     </div>
                 </div>
             </div>
-
             <div class="form-group">
                 <div class="">
                     <button type="button" class="btn btn-primary pull-right" id="login">Entrar</button>
