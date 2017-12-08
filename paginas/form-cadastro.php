@@ -69,7 +69,7 @@
                         window.location = "/navegacao.php?page=listaUsuarios";
                     },
 
-                    function fail(data, status) {
+                    function fail(data) {
                         alert(`${data.message}`);
                     }
                 );
