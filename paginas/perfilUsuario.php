@@ -18,7 +18,7 @@ if ($perfil->execute()){
     <div class="container">
         <div class="row">
             <div class="panel panel-default">
-                <div class="panel-heading">  <h1>Perfil</h1>
+                <div class="panel-heading"><h1>Perfil</h1>
                 </div>
                 <div class="panel-body">
                     <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
@@ -40,7 +40,7 @@ if ($perfil->execute()){
                         </ul>
                         <hr>
                         <div class="pull-right">
-                            <a class="btn btn-success glyphicon glyphicon-tasks" href="/navegacao.php?page=listaUsuarios&id=<?=$pessoa->id;?>"> Voltar</a>
+                            <a class="btn btn-success glyphicon glyphicon-tasks" href="/navegacao.php?page=listaUsuarios"> Voltar</a>
                         </div>
                     </div>
                 </div>
