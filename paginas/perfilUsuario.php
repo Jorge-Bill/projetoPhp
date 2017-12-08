@@ -47,39 +47,5 @@ if ($perfil->execute()){
             </div>
         </div>
     </div>
-
-        <!--teste-->
-<!--    --><?php
-//    if (!empty($perfil['foto'])): ?>
-<!--        <div class="container-fluid">-->
-<!--            <img class="img-circle fotoPerfil"src="../imagens/--><?php //echo $perfil['foto'];?><!-- ">-->
-<!--        </div>-->
-<!--    --><?php //endif; ?>
-<!--    <div class="container">-->
-<!--        <div class="col-md-7 col-md-offset-2 col-xs-12 text-center">-->
-<!--            <div class="modal-dialog modal-sm-12">-->
-<!--                <h1 class="text-center">Perfil</h1>-->
-<!---->
-<!--                <table class="table table-hover">-->
-<!--                    <thead>-->
-<!--                    <tr>-->
-<!--                        <td class="danger"><strong>Nome:</strong></td>-->
-<!--                        <td class="danger"><strong>Email:</strong></td>-->
-<!--                        <td class="danger"><strong>Perfil:</strong></td>-->
-<!--                    </tr>-->
-<!---->
-<!--                    <tr>-->
-<!--                        <td>--><?php //echo $perfil['nome']?><!--</td>-->
-<!--                        <td>--><?php //echo $perfil['email']?><!--</td>-->
-<!--                        <td>--><?php //echo $perfil['perfil']?><!--</td>-->
-<!--                    </tr>-->
-<!--                    </thead>-->
-<!--                </table>-->
-<!--                <div class="pull-right">-->
-<!--                    <a class="btn btn-success" href="listaUsuarios.php"> Voltar</a>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
 <?php
 require_once "footer.php";?>
