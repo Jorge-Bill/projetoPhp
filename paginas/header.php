@@ -1,7 +1,11 @@
 <?php
 //session_start();
 
-$usuario = $_SESSION['usuario'];
+//$usuario = $_SESSION['usuario'];
+
+if (array_key_exists('usuario',$_SESSION)){
+    $usuario = $_SESSION['usuario'];
+}
 
 ?>
 
@@ -37,13 +41,13 @@ $usuario = $_SESSION['usuario'];
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Opções <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <?php
-                        if (!empty($usuario['nome'])): ?>
+                        if (isset($usuario['nome'])): ?>
                             <li>
                                 <a href="#">Olá, <?php echo $usuario['nome'];?></a>
                             </li>
                         <?php endif; ?>
                         <li>
-                            <a href="/navegacao.php?page=perfilUsuario.php">Perfil</a>
+                            <a href="/navegacao.php?page=perfilUsuario&id=<?=$usuario['id'];?>">Perfil</a>
                         </li>
                         <li role="separator" class="divider"></li>
                         <li>

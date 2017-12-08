@@ -1,9 +1,10 @@
 <?php
 
 require_once "paginas/conecta.php";
-require_once "paginas/header.php";
 
 session_start();
+
+require_once "paginas/header.php";
 
 if($_REQUEST && array_key_exists('logado', $_SESSION)) {
     $page = $_REQUEST['page'];
