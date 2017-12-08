@@ -74,5 +74,3 @@ if($_SESSION) {
             });
         });
     </script>
-</body>
-</html>
