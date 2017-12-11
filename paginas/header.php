@@ -1,15 +1,3 @@
-<?php
-//session_start();
-
-//$usuario = $_SESSION['usuario'];
-
-if (array_key_exists('usuario',$_SESSION)){
-    $usuario = $_SESSION['usuario'];
-}
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -20,6 +8,12 @@ if (array_key_exists('usuario',$_SESSION)){
 </head>
 <body>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+
+<?php
+
+if (array_key_exists('usuario',$_SESSION)):
+    $usuario = $_SESSION['usuario'];
+    ?>
 
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
@@ -59,6 +53,8 @@ if (array_key_exists('usuario',$_SESSION)){
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
+
+<?php endif; ?>
 
 <div class="container conteudo">
     <div class="row">
