@@ -3,6 +3,7 @@ require_once "consultarPessoa.php";
 $usuario = $_SESSION['usuario'];
 ?>
 
+
 <h3>Bem vindo, <?= $usuario['nome']; ?></h3>
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -30,6 +31,7 @@ $usuario = $_SESSION['usuario'];
                     <td><?=ucfirst(strtolower($pessoa->email));?></td>
                     <td><?=ucfirst(strtolower($pessoa->perfil));?></td>
                     <td>
+
                         <a class="btn btn-sm btn-success" href="/navegacao.php?page=perfilUsuario&id=<?=$pessoa->id;?>">
                             <span class="glyphicon glyphicon-user"></span> Perfil
                         </a>
@@ -46,5 +48,12 @@ $usuario = $_SESSION['usuario'];
             <?php endforeach; ?>
             </tbody>
         </table>
+        <?php
+        while ($i <= $calculete){
+            echo "<a href='/navegacao.php?page=?listaUsuarios&page=$i' class='btn_pg'>$i</a>";
+            $i++;
+        }
+        ?>
     </div>
 </div>
+

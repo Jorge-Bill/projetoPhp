@@ -28,6 +28,7 @@ if ($perfil->execute()){
                                 <img class="thumbnail fotoPerfil" src="../imagens/<?php echo $perfil['foto'];?>">
                             </div>
                         <?php endif; ?>
+
                     </div>
                     <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8" >
                         <div class="container">
