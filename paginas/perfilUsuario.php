@@ -10,7 +10,6 @@ $perfil = $pdo->prepare('SELECT * FROM pessoa WHERE id = :id');
 
 $perfil->bindParam(":id", $id);
 
-
 if ($perfil->execute()){
     $perfil = $perfil->fetch(PDO::FETCH_ASSOC);
 }
@@ -22,6 +21,7 @@ if ($perfil->execute()){
                 </div>
                 <div class="panel-body">
                     <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
+
                         <?php
                         if (!empty($perfil['foto'])): ?>
                             <div class="container-fluid">
@@ -30,11 +30,11 @@ if ($perfil->execute()){
                         <?php endif; ?>
                     </div>
                     <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8" >
-                        <div class="container" >
+                        <div class="container">
                             <h2><?php echo $perfil['nome']?></h2>
                         </div>
                         <hr>
-                        <ul class="container details" >
+                        <ul class="container details">
                             <li><p><span class="glyphicon glyphicon-user" style="width:50px;"></span><?php echo $perfil['perfil']?></p></li>
                             <li><p><span class="glyphicon glyphicon-envelope one" style="width:50px;"></span><?php echo $perfil['email']?></p></li>
                         </ul>
