@@ -4,7 +4,7 @@ $usuario = $_SESSION['usuario'];
 ?>
 
 
-<h3>Bem vindo, <?= $usuario['nome']; ?></h3>
+<h3>Bem vindo, <?= ucfirst($usuario['nome']); ?></h3>
 <div class="panel panel-default">
     <div class="panel-heading">
         <h1 class="text-center">Lista de usuários</h1>
@@ -51,7 +51,6 @@ $usuario = $_SESSION['usuario'];
         </table>
     </div>
 </div>
-
 
 
 
