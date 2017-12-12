@@ -21,9 +21,11 @@ $usuario = $_SESSION['usuario'];
             </tr>
             </thead>
             <tbody>
+            <?php if($usuario['perfil'] == "Admin"): ?>
             <a class="btn btn-primary" href="/navegacao.php?page=form-cadastro">
                 <span class="glyphicon glyphicon-plus"></span> Criar Usuario
             </a>
+            <?php endif; ?>
             <?php foreach ($detalhesPessoa as $key => $pessoa): ?>
                 <tr>
                     <td><?= $key + 1; ?></td>
@@ -31,7 +33,6 @@ $usuario = $_SESSION['usuario'];
                     <td><?=ucfirst(strtolower($pessoa->email));?></td>
                     <td><?=ucfirst(strtolower($pessoa->perfil));?></td>
                     <td>
-
                         <a class="btn btn-sm btn-success" href="/navegacao.php?page=perfilUsuario&id=<?=$pessoa->id;?>">
                             <span class="glyphicon glyphicon-user"></span> Perfil
                         </a>
@@ -48,12 +49,9 @@ $usuario = $_SESSION['usuario'];
             <?php endforeach; ?>
             </tbody>
         </table>
-        <?php
-        while ($i <= $calculete){
-            echo "<a href='/navegacao.php?page=?listaUsuarios&page=$i' class='btn_pg'>$i</a>";
-            $i++;
-        }
-        ?>
     </div>
 </div>
+
+
+
 

@@ -16,7 +16,6 @@ if($_SESSION) {
         <form class="form-horizontal">
             <div class="form-group">
                 <label for="email" class=" control-label">Usuário</label>
-
                 <div class="">
                     <input class="form-control" id="email" name="email" autofocus placeholder="Digite seu usuário " required>
                 </div>

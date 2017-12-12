@@ -13,6 +13,7 @@ $perfil->bindParam(":id", $id);
 if ($perfil->execute()){
     $perfil = $perfil->fetch(PDO::FETCH_ASSOC);
 }
+
 ?>
     <div class="container">
         <div class="row">
@@ -21,14 +22,12 @@ if ($perfil->execute()){
                 </div>
                 <div class="panel-body">
                     <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
-
                         <?php
                         if (!empty($perfil['foto'])): ?>
                             <div class="container-fluid">
                                 <img class="thumbnail fotoPerfil" src="../imagens/<?php echo $perfil['foto'];?>">
                             </div>
                         <?php endif; ?>
-
                     </div>
                     <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8" >
                         <div class="container">
@@ -39,10 +38,16 @@ if ($perfil->execute()){
                             <li><p><span class="glyphicon glyphicon-user" style="width:50px;"></span><?php echo $perfil['perfil']?></p></li>
                             <li><p><span class="glyphicon glyphicon-envelope one" style="width:50px;"></span><?php echo $perfil['email']?></p></li>
                         </ul>
+
                         <hr>
                         <div class="pull-right">
-                            <a class="btn btn-success glyphicon glyphicon-tasks" href="/navegacao.php?page=listaUsuarios"> Voltar</a>
+                            <a class="btn btn-success glyphicon glyphicon-list-alt" href="/navegacao.php?page=listaUsuarios"> Voltar</a>
                         </div>
+                        <?php if($usuario['perfil'] == "Admin"): ?>
+                            <div class="pull-right">
+                                <a class="btn btn-warning glyphicon glyphicon glyphicon-pencil " href="/navegacao.php?page=editarForm&id=<?=$usuario['id'];?>"> Editar</a>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
