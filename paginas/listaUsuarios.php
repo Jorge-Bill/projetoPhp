@@ -40,9 +40,9 @@ $usuario = $_SESSION['usuario'];
                             <a class="btn btn-sm btn-warning" href="/navegacao.php?page=editarForm&id=<?=$pessoa->id;?>">
                               <span class="glyphicon glyphicon-pencil"></span> Editar
                             </a>
-                            <a class="btn btn-sm btn-danger" href="/navegacao.php?page=deletarUsuario&id=<?=$pessoa->id;?>">
+                            <button onclick="apagarConf()" class="btn btn-sm btn-danger">
                                <span class="glyphicon glyphicon-trash"></span>  Excluir
-                            </a>
+                            </button>
                         <?php endif; ?>
                     </td>
                 </tr>
@@ -52,5 +52,17 @@ $usuario = $_SESSION['usuario'];
     </div>
 </div>
 
+<script>
 
+    function apagarConf(){
+        let apagar = confirm('Deseja realmente excluir este registro?');
+        if (apagar){
+            window.location = "/navegacao.php?page=deletarUsuario&id=<?=$pessoa->id;?>";
+        }
+        else{
+            event.preventDefault();
+        }
+    }
+
+</script>
 
