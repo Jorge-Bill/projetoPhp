@@ -38,7 +38,7 @@ if($_SESSION) {
                 <input type="password" maxlength="6" class="form-control" id="senha" name="senha" placeholder="Digite sua senha" required>
             </div>
             <div class="form-group col-xs-12 col-md-12">
-                <button type="button" class="btn btn-primary btn-lg btn-block" id="login">Entrar</button>
+                <button type="button" class="btn btn-info btn-lg btn-block" id="login">Entrar</button>
             </div>
         </form>
     </div>
