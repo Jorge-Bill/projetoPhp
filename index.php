@@ -26,17 +26,17 @@ if($_SESSION) {
                     <input type="password" maxlength="6" class="form-control" id="senha" name="senha" placeholder="Digite sua senha" required>
                 </div>
             </div>
-            <div class="form-group">
-                <div class="">
-                    <h5>Escolha o perfil de usuario</h5>
-                    <div class="">
-                        <select class="form-horizontal" id="perfil">
-                            <option value="Admin">Admin</option>
-                            <option value="basico">basico</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
+<!--            <div class="form-group">-->
+<!--                <div class="">-->
+<!--                    <h5>Escolha o perfil de usuario</h5>-->
+<!--                    <div class="">-->
+<!--                        <select class="form-horizontal" id="perfil">-->
+<!--                            <option value="Admin">Admin</option>-->
+<!--                            <option value="basico">basico</option>-->
+<!--                        </select>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
             <div class="form-group">
                 <div class="">
                     <button type="button" class="btn btn-primary pull-right" id="login">Entrar</button>

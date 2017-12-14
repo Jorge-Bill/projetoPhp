@@ -21,10 +21,10 @@ print_r($editarPessoa->errorInfo());
 
 <div class="col-md-7 col-md-offset-2 col-xs-12">
     <h1 class="text-center">Editar</h1>
-    <form method="POST" action="/navegacao.php?page=editarUsuario" enctype="multipart/form-data">
+    <form>
         <div class="form-group">
             <!--            <label for="id">Id</label>-->
-            <input class="form-control" type='hidden' name='id' value="<?php echo $editarPessoa['id']?>">
+            <input class="form-control" type='hidden' name='idPessoa' id="idPessoa" value="<?php echo $editarPessoa['id']?>">
         </div>
         <div class="form-group">
             <label for="nomePessoa">Nome</label>
@@ -67,7 +67,55 @@ print_r($editarPessoa->errorInfo());
         <div class="pull-right">
 
             <a class="btn btn-default" href="/navegacao.php?page=listaUsuarios"> Cancelar</a>
-            <button type="submit" class="btn btn-primary">Salvar</button>
+            <button type="button" id="editar" class="btn btn-primary">Salvar</button>
         </div>
     </form>
 </div>
+
+<script>
+    $(document).ready(function(){
+        let form;
+        $('#imagemPessoa').change(function (event) {
+            form = new FormData();
+            form.append('foto', event.target.files[0]);
+        });
+
+        $("#editar").click(() => {
+            let id      = $('#idPessoa').val();
+            let nome    = $('#nomePessoa').val();
+            let email   = $('#emailPessoa').val();
+            let senha   = $('#senhaPessoa').val();
+            let foto    = $('#imagemPessoa').val();
+            let perfil  = $('#perfilPessoa').val();
+
+            if( nome && email && senha && perfil && foto) {
+                form.append('id', id);
+                form.append('nome', nome);
+                form.append('email', email);
+                form.append('senha', senha);
+                form.append('foto', foto);
+                form.append('perfil', perfil);
+
+                $.ajax({
+                    method: "POST",
+                    processData: false,
+                    contentType: false,
+                    url: "/navegacao.php?page=editarUsuario",
+                    data: form
+                })
+                    .then(
+                        function success(data) {
+                            window.location = "/navegacao.php?page=listaUsuarios";
+                        },
+
+                        function fail(data) {
+                            alert(`${data.message}`);
+                        }
+                    );
+            }
+            else {
+                alert('Erro! preencha os campos');
+            }
+        });
+    });
+</script>

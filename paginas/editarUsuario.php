@@ -1,76 +1,66 @@
 <?php
 
-$id         = (isset($_REQUEST['id'])) ? $_REQUEST['id'] : '';
-$nome       = (isset($_REQUEST['nomePessoa'])) ? $_REQUEST['nomePessoa'] : '';
-$perfil     = (isset($_REQUEST['perfilPessoa'])) ? $_REQUEST['perfilPessoa'] : '';
-$senha      = (isset($_REQUEST['senhaPessoa'])) ? $_REQUEST['senhaPessoa'] : '';
-$email      = (isset($_REQUEST['emailPessoa'])) ? $_REQUEST['emailPessoa'] : '';
-$foto       = (isset($_FILES['imagemPessoa'])) && $_FILES['imagemPessoa']['size'] ? $_FILES['imagemPessoa'] : '';
+$msg = ['results' => [
+    'currect' => [
+        'status' => 200
+    ],
+    'error' => [
+        'message' => 'Erro ao editar!',
+        'status' => 500
+    ]
+]];
 
-var_dump($id);
-var_dump($nome);
-var_dump($email);
-var_dump($senha);
-var_dump($perfil);
-var_dump($foto);
+    if ($_POST){
 
-if (!empty($foto)){
+        $pessoa = (object)[
+            'id'        => $_POST['id'],
+            'nome'      => $_POST['nome'],
+            'email'     => $_POST['email'],
+            'senha'     => $_POST['senha'],
+            'perfil'    => $_POST['perfil'],
+            'foto'      => $_FILES['foto']
+        ];
 
-    $nomeFoto   = $foto['name'];
-    $tipo       = $foto['type'];
-    $tamanho    = $foto['size'];
-    $destino    = 'imagens/';
+        if (!empty($pessoa->foto)){
+            $destino = 'imagens/';
 
-    var_dump($foto);
-    var_dump($nomeFoto);
-    var_dump($tipo);
-    var_dump($tamanho);
-    var_dump($destino);
+            $uploadfile = $destino . basename($pessoa->foto['name']);
+
+            if(!preg_match('/^image\/(pjpeg|jpeg|png|gif|bmp)$/', $pessoa->foto['type'])){
+                print_r ('Isso não é uma imagem válida');
+                exit;
+            }
+
+            if(!file_exists($destino)) {
+                mkdir($destino);
+            }
+
+            if (!move_uploaded_file($pessoa->foto['tmp_name'], $uploadfile)) {
+                print_r("Houve um erro ao gravar arquivo na pasta de destino!");
+            }
+        }
+
+        $pdo = conectar();
+
+        $sql = "UPDATE pessoa SET nome=:nome, foto=:foto, perfil=:perfil, senha=:senha, email=:email WHERE id=:id;";
+
+        $updatePessoa = $pdo->prepare($sql);
+
+        $updatePessoa->bindParam(":id", $pessoa->id);
+        $updatePessoa->bindParam(":nome", $pessoa->nome);
+        $updatePessoa->bindParam(":foto", $pessoa->foto['name']);
+        $updatePessoa->bindParam(":perfil", $pessoa->perfil);
+        $updatePessoa->bindParam(":senha", $pessoa->senha);
+        $updatePessoa->bindParam(":email", $pessoa->email);
 
 
-
-    $uploadfile = $destino . basename($_FILES['imagemPessoa']['name']);
-
-    if(!preg_match('/^image\/(pjpeg|jpeg|png|gif|bmp)$/', $tipo))
-    {
-        print_r ('Isso não é uma imagem válida');
-        exit;
+        if ($updatePessoa->execute()){
+            echo json_encode($msg['results']['currect']);
+        }
+        else{
+            echo "Erro ao cadastrar";
+            print_r($updatePessoa->errorInfo());
+            echo json_encode($msg['results']['error']);
+        }
     }
-
-    if(!file_exists($destino)):
-        mkdir($destino);
-    endif;
-
-
-    if (!move_uploaded_file($_FILES['imagemPessoa']['tmp_name'], $uploadfile)):
-        print_r( "Houve um erro ao gravar arquivo na pasta de destino!");
-    endif;
-}
-
-$pdo = conectar();
-
-$sql = "UPDATE pessoa SET nome=:nome, foto=:foto, perfil=:perfil, senha=:senha, email=:email WHERE id=:id;";
-
-$updatePessoa = $pdo->prepare($sql);
-
-$updatePessoa->bindParam(":id", $id);
-$updatePessoa->bindParam(":nome", $nome);
-$updatePessoa->bindParam(":foto", $nomeFoto);
-$updatePessoa->bindParam(":perfil", $perfil);
-$updatePessoa->bindParam(":senha", $senha);
-$updatePessoa->bindParam(":email", $email);
-
-
-if ($updatePessoa->execute()){
-//    header('Location: /navegacao.php?page=listaUsuarios');
-    ?>
-    <script>
-        window.location = "/navegacao.php?page=listaUsuarios";
-    </script>
-<?php
-    }
- else{
-        echo "Erro ao editar";
-        print_r($updatePessoa->errorInfo());
- }
 ?>
