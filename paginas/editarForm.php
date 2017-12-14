@@ -71,3 +71,4 @@ print_r($editarPessoa->errorInfo());
         </div>
     </form>
 </div>
+<script>
