@@ -43,9 +43,11 @@ if (array_key_exists('usuario',$_SESSION)):
 <!--                        <li>-->
 <!--                            <a href="/navegacao.php?page=perfilUsuario&id=--><?//=$usuario['id'];?><!--">Perfil</a>-->
 <!--                        </li>-->
+                       <?php if ($usuario['perfil'] == "Admin"): ?>
                         <li>
                             <a href="/navegacao.php?page=editarForm&id=<?=$usuario['id'];?>">Editar</a>
                         </li>
+                        <?php endif; ?>
                         <li role="separator" class="divider"></li>
                         <li>
                             <a href="/navegacao.php?page=logout">Sair</a>
