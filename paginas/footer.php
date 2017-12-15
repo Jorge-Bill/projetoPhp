@@ -1,6 +1,6 @@
 <?php if (array_key_exists('usuario',$_SESSION)): ?>
     <div class="clearfix"></div>
-    <p class="" id="valor"></p>
+    <strong><p class="" id="valor"></p></strong>
 
     <?php
     $tempo_atual = @mktime(date("Y/m/d H:i:s"));
@@ -40,7 +40,7 @@
         </div>
 
         <footer class="jumbotron">
-            <h6 class="text-center">Registration System - <?php echo date('Y'); ?>&copy;</h6>
+            <h6 class="text-center">Registration System - <?php echo date('Y'); ?> &copy;</h6>
         </footer>
         <script src="/../js/bootstrap.js"></script>
     </body>

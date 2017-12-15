@@ -10,8 +10,10 @@ $usuario = $_SESSION['usuario'];
     </a>
 <?php endif; ?>
 <div class="pull-right">
-    <button onclick="mostarCard()" class="btn btn-default">Cards</button>
-    <button onclick="mostarTab()" class="btn btn-default">Tabela</button>
+    <button onclick="mostarCard()" class="btn btn-default"><span class="glyphicon glyphicon-th-large
+"></span></button>
+    <button onclick="mostarTab()" class="btn btn-default"><span class="glyphicon glyphicon-th-list
+"></span></button>
 </div>
 <br>
 <hr>
@@ -25,7 +27,7 @@ $usuario = $_SESSION['usuario'];
                     <h3><?=ucfirst(strtolower($pessoa->nome));?></h3>
                     <p><?=ucfirst(strtolower($pessoa->email));?></p>
                     <p><?=ucfirst(strtolower($pessoa->perfil));?></p>
-                    <a class="btn btn-sm btn-success" href="/navegacao.php?page=perfilUsuario&id=<?=$pessoa->id;?>">
+                    <a class="btn btn-sm btn-info" href="/navegacao.php?page=perfilUsuario&id=<?=$pessoa->id;?>">
                         <span class="glyphicon glyphicon-user"></span> Perfil
                     </a>
                     <?php if($usuario['perfil'] == "Admin"): ?>
@@ -66,7 +68,7 @@ $usuario = $_SESSION['usuario'];
                     <td><?=ucfirst(strtolower($pessoa->email));?></td>
                     <td><?=ucfirst(strtolower($pessoa->perfil));?></td>
                     <td>
-                        <a class="btn btn-sm btn-success" href="/navegacao.php?page=perfilUsuario&id=<?=$pessoa->id;?>">
+                        <a class="btn btn-sm btn-info" href="/navegacao.php?page=perfilUsuario&id=<?=$pessoa->id;?>">
                             <span class="glyphicon glyphicon-user"></span> Perfil
                         </a>
                         <?php if($usuario['perfil'] == "Admin"): ?>
