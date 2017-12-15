@@ -10,10 +10,8 @@ $usuario = $_SESSION['usuario'];
     </a>
 <?php endif; ?>
 <div class="pull-right">
-    <button onclick="mostarCard()" class="btn btn-default"><span class="glyphicon glyphicon-th-large
-"></span></button>
-    <button onclick="mostarTab()" class="btn btn-default"><span class="glyphicon glyphicon-th-list
-"></span></button>
+    <button onclick="mostarCard()" class="btn btn-default btnDev"><span class="glyphicon glyphicon-th-large"></span></button>
+    <button onclick="mostarTab()" class="btn btn-default btnDev"><span class="glyphicon glyphicon-th-list"></span></button>
 </div>
 <br>
 <hr>
@@ -22,7 +20,7 @@ $usuario = $_SESSION['usuario'];
         <?php foreach ($detalhesPessoa as $key => $pessoa){ ?>
         <div class="col-sm-6 col-md-4">
             <div class="thumbnail" style=" box-shadow: 1px 1px 1px #dbdbdb;">
-                <img class="img-responsive" src="../imagens/<?=ucfirst(strtolower($pessoa->foto));?>" alt="foto de perfil">
+                <img class="img-responsive imgCard" src="../imagens/<?=ucfirst(strtolower($pessoa->foto));?>" alt="foto de perfil">
                 <div class="caption">
                     <h3><?=ucfirst(strtolower($pessoa->nome));?></h3>
                     <p><?=ucfirst(strtolower($pessoa->email));?></p>
@@ -45,7 +43,7 @@ $usuario = $_SESSION['usuario'];
     </div>
 </div>
 
-<div class="panel panel-default" id="tabela">
+<div class="panel panel-default " id="tabela">
     <div class="panel-heading">
         <h1 class="text-center">Lista de usuários</h1>
     </div>

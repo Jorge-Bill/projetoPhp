@@ -26,7 +26,7 @@ if($_SESSION) {
 </style>
 
     <div class="container login col-md-4 col-md-offset-4 col-xs-12 thumbnail">
-        <h1 class="text-center">Login <span class="glyphicon glyphicon-flash"></span></h1>
+        <h1 class="text-center animated infinite pulse">Login <span class="glyphicon glyphicon-flash animated infinite pulse"></span></h1>
         <hr>
         <form>
             <div class="form-group col-xs-12 col-md-6">
@@ -38,7 +38,7 @@ if($_SESSION) {
                 <input type="password" maxlength="6" class="form-control" id="senha" name="senha" placeholder="Digite sua senha" required>
             </div>
             <div class="form-group col-xs-12 col-md-12">
-                <button type="button" class="btn btn-info btn-lg btn-block" id="login">Entrar</button>
+                <button type="button" class="btn btn-info btn-lg btn-block " id="login">Entrar</span></button>
             </div>
         </form>
     </div>

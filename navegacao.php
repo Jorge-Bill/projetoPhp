@@ -23,7 +23,6 @@ if($_REQUEST && array_key_exists('logado', $_SESSION)) {
     } else {
 
         die('404 página não encontrada!');
-
     }
 } else {
     require_once __DIR__ . '/index.php';

@@ -1,3 +1,8 @@
+.login{
+    box-shadow: 1px 1px 1px #dbdbdb;
+    opacity: 0.9;
+}
+
 .conteudo{
     padding-top: 70px;
 }
@@ -20,6 +25,10 @@ footer{
 
 h6{
     color: white;
+}
+
+.text-center{
+    color: #000;
 }
 
 body{

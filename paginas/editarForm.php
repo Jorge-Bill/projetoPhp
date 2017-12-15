@@ -71,11 +71,12 @@ print_r($editarPessoa->errorInfo());
         </div>
     </form>
 </div>
-<<<<<<< HEAD
-<script>
-=======
 
 <script>
+
+
+<script>
+
     $(document).ready(function(){
         let form;
         $('#imagemPessoa').change(function (event) {
@@ -121,5 +122,6 @@ print_r($editarPessoa->errorInfo());
             }
         });
     });
+
 </script>
->>>>>>> 37db0506899c6b115760a75bf81834fed1e8c11d
+
