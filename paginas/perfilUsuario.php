@@ -43,11 +43,11 @@ if ($perfil->execute()){
                         <div class="pull-right">
                             <a class="btn btn-success glyphicon glyphicon-list-alt" href="/navegacao.php?page=listaUsuarios"> Voltar</a>
                         </div>
-                        <?php if($usuario['perfil'] == "Admin"): ?>
-                            <div class="pull-right">
-                                <a class="btn btn-warning glyphicon glyphicon glyphicon-pencil " href="/navegacao.php?page=editarForm&id=<?=$usuario['id'];?>"> Editar</a>
-                            </div>
-                        <?php endif; ?>
+<!--                        --><?php //if($usuario['perfil'] == "Admin"): ?>
+<!--                            <div class="pull-right">-->
+<!--                                <a class="btn btn-warning glyphicon glyphicon glyphicon-pencil " href="/navegacao.php?page=editarForm&id=--><?//=$usuario['id'];?><!--"> Editar</a>-->
+<!--                            </div>-->
+<!--                        --><?php //endif; ?>
                     </div>
                 </div>
             </div>

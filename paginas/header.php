@@ -37,12 +37,17 @@ if (array_key_exists('usuario',$_SESSION)):
                         <?php
                         if (isset($usuario['nome'])): ?>
                             <li>
-                                <a href="#">Olá, <?php echo $usuario['nome'];?></a>
+                                <a href="/navegacao.php?page=perfilUsuario&id=<?=$usuario['id'];?>">Olá, <?php echo ucfirst($usuario['nome']); ?></a>
                             </li>
                         <?php endif; ?>
+<!--                        <li>-->
+<!--                            <a href="/navegacao.php?page=perfilUsuario&id=--><?//=$usuario['id'];?><!--">Perfil</a>-->
+<!--                        </li>-->
+                       <?php if ($usuario['perfil'] == "Admin"): ?>
                         <li>
-                            <a href="/navegacao.php?page=perfilUsuario&id=<?=$usuario['id'];?>">Perfil</a>
+                            <a href="/navegacao.php?page=editarForm&id=<?=$usuario['id'];?>">Editar</a>
                         </li>
+                        <?php endif; ?>
                         <li role="separator" class="divider"></li>
                         <li>
                             <a href="/navegacao.php?page=logout">Sair</a>

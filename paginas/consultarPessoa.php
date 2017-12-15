@@ -1,6 +1,5 @@
 <?php
 
-$i = 1;
 $pdo = conectar();
 $detalhesPessoa = $pdo->prepare("SELECT 
     pessoa.id       AS id,

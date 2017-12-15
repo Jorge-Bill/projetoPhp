@@ -22,7 +22,7 @@ if ($_POST) {
 
     $pdo = conectar();
 
-    $loginPessoa = $pdo->prepare("SELECT * FROM pessoa WHERE email = :email AND senha = :senha");
+    $loginPessoa = $pdo->prepare("SELECT * FROM pessoa WHERE email  = :email AND senha = :senha");
 
 
     $loginPessoa->bindParam(":email", $email, PDO::PARAM_STR);
