@@ -34,31 +34,3 @@ h6{
 body{
    background-color: #f5f5f561;
 }
-.btn-default {
-    position:relative;
-    top: -6px;
-    border:0;
-    transition: all 80ms linear;
-    margin-top:10px;
-    margin-bottom:10px;
-    margin-left:2px;
-    margin-right:2px;
-}
-
-.btn-default:active:focus,
-.btn-default:focus:hover,
-.btn-default:focus {
-    -moz-outline-style:none;
-    outline:medium none;
-}
-.btn-default{
-
-    color: #666666;
-    box-shadow:0 0 0 1px #ebebeb inset, 0 0 0 2px rgba(255,255,255,0.10) inset, 0 8px 0 0 #BEBEBE, 0 8px 8px 1px rgba(0,0,0,.2);
-    background-color:#f9f9f9;
-}
-.btn-default.btn-default:active, .btn-default.btn-default.active {
-    color: #666666;
-    box-shadow:0 0 0 1px #ebebeb inset, 0 0 0 1px rgba(255,255,255,0.15) inset, 0 1px 3px 1px rgba(0,0,0,.1);
-    background-color:#f9f9f9;
-}

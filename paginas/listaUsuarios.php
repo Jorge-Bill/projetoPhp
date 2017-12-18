@@ -15,33 +15,34 @@ $usuario = $_SESSION['usuario'];
 </div>
 <br>
 <hr>
-<div class="container" id="cartao">
-    <div class="row">
-        <?php foreach ($detalhesPessoa as $key => $pessoa){ ?>
-        <div class="col-sm-6 col-md-4">
-            <div class="thumbnail" style=" box-shadow: 1px 1px 1px #dbdbdb;">
-                <img class="img-responsive imgCard" src="../imagens/<?=ucfirst(strtolower($pessoa->foto));?>" alt="foto de perfil">
-                <div class="caption">
-                    <h3><?=ucfirst(strtolower($pessoa->nome));?></h3>
-                    <p><?=ucfirst(strtolower($pessoa->email));?></p>
-                    <p><?=ucfirst(strtolower($pessoa->perfil));?></p>
-                    <a class="btn btn-sm btn-info" href="/navegacao.php?page=perfilUsuario&id=<?=$pessoa->id;?>">
-                        <span class="glyphicon glyphicon-user"></span> Perfil
-                    </a>
-                    <?php if($usuario['perfil'] == "Admin"): ?>
-                        <a class="btn btn-sm btn-warning" href="/navegacao.php?page=editarForm&id=<?=$pessoa->id;?>">
-                          <span class="glyphicon glyphicon-pencil"></span> Editar
+
+    <div class="container" id="cartao">
+        <div class="row">
+            <?php foreach ($detalhesPessoa as $key => $pessoa){ ?>
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail" style=" box-shadow: 1px 1px 1px #dbdbdb;">
+                    <img class="img-responsive imgCard" src="../imagens/<?=ucfirst(strtolower($pessoa->foto));?>" alt="foto de perfil">
+                    <div class="caption">
+                        <h3><?=ucfirst(strtolower($pessoa->nome));?></h3>
+                        <p><?=ucfirst(strtolower($pessoa->email));?></p>
+                        <p><?=ucfirst(strtolower($pessoa->perfil));?></p>
+                        <a class="btn btn-sm btn-info" href="/navegacao.php?page=perfilUsuario&id=<?=$pessoa->id;?>">
+                            <span class="glyphicon glyphicon-user"></span> Perfil
                         </a>
-                        <button onclick="apagarConf()" class="btn btn-sm btn-danger">
-                           <span class="glyphicon glyphicon-trash"></span>  Excluir
-                        </button>
-                    <?php endif; ?>
+                        <?php if($usuario['perfil'] == "Admin"): ?>
+                            <a class="btn btn-sm btn-warning" href="/navegacao.php?page=editarForm&id=<?=$pessoa->id;?>">
+                              <span class="glyphicon glyphicon-pencil"></span> Editar
+                            </a>
+                            <button onclick="apagarConf()" class="btn btn-sm btn-danger">
+                               <span class="glyphicon glyphicon-trash"></span>  Excluir
+                            </button>
+                        <?php endif; ?>
+                    </div>
                 </div>
             </div>
+            <?php } ?>
         </div>
-        <?php } ?>
     </div>
-</div>
 
 <div class="panel panel-default " id="tabela">
     <div class="panel-heading">
@@ -59,6 +60,9 @@ $usuario = $_SESSION['usuario'];
             </tr>
             </thead>
             <tbody>
+<!--            --><?php
+//                while ($calculete=$query->fetch(PDO::FETCH_ASSOC)){
+//            ?>
             <?php foreach ($detalhesPessoa as $key => $pessoa): ?>
                 <tr>
                     <td><?= $key + 1; ?></td>
@@ -80,8 +84,20 @@ $usuario = $_SESSION['usuario'];
                     </td>
                 </tr>
             <?php endforeach; ?>
+<!--            --><?php
+//                }
+//            ?>
             </tbody>
         </table>
+        <div>
+            <?php
+            while ($i <= $calculete){
+                echo "<ul class='pagination pagination-sm'><li class='page-item'><a class='page-link label-info' 
+                    href='?listaUsuarios=$i'>$i</a></li></ul>";
+                $i++;
+            }
+            ?>
+        </div>
     </div>
 </div>
 
