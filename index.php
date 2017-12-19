@@ -25,23 +25,34 @@ if($_SESSION) {
     }
 </style>
 
-    <div class="container login col-md-4 col-md-offset-4 col-xs-12 thumbnail">
-        <h1 class="text-center animated infinite pulse">Login <span class="glyphicon glyphicon-flash animated infinite pulse"></span></h1>
-        <hr>
-        <form>
-            <div class="form-group col-xs-12 col-md-6">
-                <label for="email" class=" control-label">E-mail</label>
-                <input class="form-control" id="email" name="email" autofocus placeholder="Digite seu usuário " required>
-            </div>
-            <div class="form-group col-xs-12 col-md-6">
-                <label for="senha" class=" control-label">Senha</label>
-                <input type="password" maxlength="6" class="form-control" id="senha" name="senha" placeholder="Digite sua senha" required>
-            </div>
-            <div class="form-group col-xs-12 col-md-12">
-                <button type="button" class="btn btn-info btn-lg btn-block " id="login">Entrar</span></button>
-            </div>
-        </form>
-    </div>
+<div class="container login col-md-4 col-md-offset-4 col-xs-12 thumbnail">
+    <h1 class="text-center animated infinite pulse">Login <span class="glyphicon glyphicon-flash animated infinite pulse"></span></h1>
+    <hr>
+    <form>
+        <div class="form-group col-xs-12 col-md-6">
+            <label for="email" class=" control-label">E-mail</label>
+            <input class="form-control" id="email" name="email" autofocus placeholder="Digite seu usuário " required>
+        </div>
+        <div class="form-group col-xs-12 col-md-6">
+            <label for="senha" class=" control-label">Senha</label>
+            <input type="password" maxlength="6" class="form-control" id="senha" name="senha" placeholder="Digite sua senha" required>
+        </div>
+        <div class="form-group col-xs-12 col-md-12">
+
+            <script>
+                $(document).keypress(function(e) {
+                    if(e.which == 13) $('#login').click();
+                });
+
+                $('button').click(function(e) {
+                    alert(this.innerHTML);
+                });
+            </script>
+
+            <button type="button" class="btn btn-info btn-lg btn-block " id="login">Entrar</span></button>
+        </div>
+    </form>
+</div>
 
 
     <script>

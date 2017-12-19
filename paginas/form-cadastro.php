@@ -1,18 +1,18 @@
-
+<script src="/js/jquery.validate.min.js"></script>
 <div class="col-md-7 col-md-offset-2 col-xs-12">
     <h1 class="text-center">Cadastrar</h1>
-    <form>
+    <form id="cadastroPessoa">
         <div class="form-group">
-            <label for="nomePessoa">Nome*</label>
-            <input type="text" class="form-control" id="nomePessoa" name="nomePessoa" placeholder="Nome" required >
+            <label for="nomePessoa">Nome* </label>
+            <input type="text" class="form-control valid" id="nomePessoa" name="nomePessoa" placeholder="Nome" minlength="2" required="" aria-required="true" aria-invalid="false" >
         </div>
         <div class="form-group">
             <label for="emailPessoa">E-mail*</label>
-            <input type="email" class="form-control" id="emailPessoa" name="emailPessoa" placeholder="E-mail" required>
+            <input type="email" class="form-control valid" id="emailPessoa" name="emailPessoa" placeholder="E-mail" required="" aria-required="true" aria-invalid="false">
         </div>
         <div class="form-group">
             <label for="senhaPessoa">Senha*</label>
-            <input type="password" class="form-control" id="senhaPessoa" name="senhaPessoa" placeholder="Senha" required>
+            <input type="password" class="form-control valid" id="senhaPessoa" name="senhaPessoa" placeholder="Senha" minlength="5" required="" aria-required="true" aria-invalid="false">
         </div>
         <div class="form-group">
             <label for="imagemPessoa">Foto</label>
@@ -26,6 +26,7 @@
                 <option>Basico</option>
             </select>
         </div>
+        <div id="msg"></div>
         <div class="clearfix"></div>
         <div class="pull-right">
             <a class="btn btn-default" href="/navegacao.php?page=listaUsuarios"> Cancelar</a>
@@ -35,13 +36,14 @@
 </div>
 
 <script>
+
     $(document).ready(function(){
         let form;
         $('#imagemPessoa').change(function (event) {
             form = new FormData();
             form.append('foto', event.target.files[0]);
         });
-
+        $("#cadastroPessoa").validate();
         $("#cadastrar").click(() => {
             let nome    = $('#nomePessoa').val();
             let email   = $('#emailPessoa').val();
@@ -50,6 +52,7 @@
             let perfil  = $('#perfilPessoa').val();
 
             if( nome && email && senha && perfil && foto) {
+
                 form.append('nome', nome);
                 form.append('email', email);
                 form.append('senha', senha);
@@ -65,18 +68,17 @@
                 })
                 .then(
                     function success(data) {
-                        alert(`Usuario cadastrado com sucesso`);
-                        window.location = "/navegacao.php?page=listaUsuarios";
+                        // console.log(`${data.message}`);
+                        // window.location = "/navegacao.php?page=listaUsuarios";
                     },
-
                     function fail(data) {
-                        alert(`${data.message}`);
+                        // console.log(`${data.message}`);
                     }
                 );
             }
-            else {
-                alert('Erro! preencha os campos');
-            }
+            // else {
+            //     alert('Erro! preencha os campos');
+            // }
         });
     });
 </script>
