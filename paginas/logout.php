@@ -6,5 +6,5 @@ if(isset($_SESSION['logado'])){
 
 ?>
 <script>
-    window.location = "http://localhost:8000/index.php";
+    window.location = "index.php";
 </script>

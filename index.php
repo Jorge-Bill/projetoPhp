@@ -25,17 +25,19 @@ if($_SESSION) {
     }
 </style>
 
+<script src="js/jquery.validate.min.js"></script>
+
 <div class="container login col-md-4 col-md-offset-4 col-xs-12 thumbnail">
     <h1 class="text-center animated infinite pulse">Login <span class="glyphicon glyphicon-flash animated infinite pulse"></span></h1>
     <hr>
-    <form>
+    <form id="loginForm">
         <div class="form-group col-xs-12 col-md-6">
             <label for="email" class=" control-label">E-mail</label>
-            <input class="form-control" id="email" name="email" autofocus placeholder="Digite seu usuário " required>
+            <input class="form-control valid" type="email" id="email" name="email" autofocus placeholder="Digite seu e-mail" required>
         </div>
         <div class="form-group col-xs-12 col-md-6">
             <label for="senha" class=" control-label">Senha</label>
-            <input type="password" maxlength="6" class="form-control" id="senha" name="senha" placeholder="Digite sua senha" required>
+            <input class="form-control valid" type="password" maxlength="6" id="senha" name="senha" placeholder="Digite sua senha" required>
         </div>
         <div class="form-group col-xs-12 col-md-12">
 
@@ -55,12 +57,30 @@ if($_SESSION) {
 </div>
 
 
+<div class="modal fade" tabindex="-1" role="dialog" id="loginModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Mensagem</h4>
+            </div>
+            <div class="modal-body">
+                <h4 class="text-center" id="confirmacao"></h4>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
     <script>
         $(document).ready(function(){
-
+            $("#loginForm").validate();
             $("#login").click(() => {
-                let email = $('#email').val();// let é uma variavel, só funciona com o javascript 'novo'
-                let senha = $('#senha').val();// let é uma variavel, só funciona com o javascript 'novo'
+                let email = $('#email').val();
+                let senha = $('#senha').val();
 
                 if( email !== "" && senha !== "" ) {
                     $.ajax({
@@ -68,15 +88,19 @@ if($_SESSION) {
                         url: "login_session.php",
                         data: { email: email, senha: senha }
                     }).done(function( data ) {
-                        if(data.status !== 200 ) {//200 tudo deu certo
-                            alert(`${data.message}`);
+                        if(data.status !== 200 ) {
+                            // alert(`${data.message}`);
+                            $('#loginModal').modal('show');
+                            $("#confirmacao").text(data.message);
                         } else {
-
-                            window.location = "/navegacao.php?page=listaUsuarios";
+                            $('#loginModal').modal('show');
+                            $("#confirmacao").text("Bem vindo");
+                            setInterval(function() { window.location = "/navegacao.php?page=listaUsuarios" }, 2000);
                         }
                     });
                 } else {
-                    alert('Preencha os campos para realizar o login');
+                    $('#loginModal').modal('show');
+                    $("#confirmacao").text('Preencha os campos para realizar o login');
                 }
             });
         });
