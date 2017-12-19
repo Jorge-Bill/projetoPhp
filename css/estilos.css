@@ -34,3 +34,8 @@ h6{
 body{
    background-color: #f5f5f561;
 }
+
+.imgCard{
+    width: 350px !important;
+    height: 253px !important;
+}
