@@ -74,9 +74,6 @@ print_r($editarPessoa->errorInfo());
 
 <script>
 
-
-<script>
-
     $(document).ready(function(){
         let form;
         $('#imagemPessoa').change(function (event) {
@@ -92,7 +89,7 @@ print_r($editarPessoa->errorInfo());
             let foto    = $('#imagemPessoa').val();
             let perfil  = $('#perfilPessoa').val();
 
-            if( nome && email && senha && perfil && foto) {
+            if(nome && email && senha && perfil && foto) {
                 form.append('id', id);
                 form.append('nome', nome);
                 form.append('email', email);
@@ -106,8 +103,7 @@ print_r($editarPessoa->errorInfo());
                     contentType: false,
                     url: "/navegacao.php?page=editarUsuario",
                     data: form
-                })
-                    .then(
+                }).then(
                         function success(data) {
                             window.location = "/navegacao.php?page=listaUsuarios";
                         },
