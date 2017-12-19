@@ -4,15 +4,15 @@
     <form id="cadastroPessoa">
         <div class="form-group">
             <label for="nomePessoa">Nome* </label>
-            <input type="text" class="form-control valid" id="nomePessoa" name="nomePessoa" placeholder="Nome" minlength="2" required="" aria-required="true" aria-invalid="false" >
+            <input type="text" class="form-control valid" id="nomePessoa" name="nomePessoa" placeholder="Nome" minlength="2" required>
         </div>
         <div class="form-group">
             <label for="emailPessoa">E-mail*</label>
-            <input type="email" class="form-control valid" id="emailPessoa" name="emailPessoa" placeholder="E-mail" required="" aria-required="true" aria-invalid="false">
+            <input type="email" class="form-control valid" id="emailPessoa" name="emailPessoa" placeholder="E-mail" required>
         </div>
         <div class="form-group">
             <label for="senhaPessoa">Senha*</label>
-            <input type="password" class="form-control valid" id="senhaPessoa" name="senhaPessoa" placeholder="Senha" minlength="5" required="" aria-required="true" aria-invalid="false">
+            <input type="password" class="form-control valid" id="senhaPessoa" name="senhaPessoa" placeholder="Senha" minlength="5" required>
         </div>
         <div class="form-group">
             <label for="imagemPessoa">Foto</label>
@@ -30,10 +30,27 @@
         <div class="clearfix"></div>
         <div class="pull-right">
             <a class="btn btn-default" href="/navegacao.php?page=listaUsuarios"> Cancelar</a>
-            <button type="button" class="btn btn-primary" id="cadastrar">Cadastrar</button>
+            <button type="button" value="Submit" class="btn btn-primary" id="cadastrar">Cadastrar</button>
         </div>
     </form>
 </div>
+
+<div class="modal fade" tabindex="-1" role="dialog" id="cadastroModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Mensagem</h4>
+            </div>
+            <div class="modal-body">
+                <p id="confirmacao"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 
 <script>
 
@@ -53,32 +70,36 @@
 
             if( nome && email && senha && perfil && foto) {
 
-                form.append('nome', nome);
-                form.append('email', email);
-                form.append('senha', senha);
-                form.append('foto', foto);
+                form.append('nome',   nome);
+                form.append('email',  email);
+                form.append('senha',  senha);
+                form.append('foto',   foto);
                 form.append('perfil', perfil);
 
                 $.ajax({
                     method: "POST",
                     processData: false,
                     contentType: false,
-                    url: "/navegacao.php?page=cadastrarPessoa",
+                    url: "/Requests/cadastrarPessoa.php",
                     data: form
                 })
                 .then(
                     function success(data) {
-                        // console.log(`${data.message}`);
-                        // window.location = "/navegacao.php?page=listaUsuarios";
-                    },
-                    function fail(data) {
-                        // console.log(`${data.message}`);
+                        if(data.status !== 200) {
+                            $('#cadastroModal').modal('show');
+                            $("#confirmacao").text("Erro! e-mail ja cadastrado");
+                        } else {
+                            $('#cadastroModal').modal('show');
+                            $("#confirmacao").text("Pessoa cadastrada com sucesso");
+                            setInterval(function() { window.location = "/navegacao.php?page=listaUsuarios" }, 2000);
+                        }
                     }
                 );
             }
-            // else {
-            //     alert('Erro! preencha os campos');
-            // }
+            else {
+                $('#cadastroModal').modal('show');
+                $("#confirmacao").text("Erro! Preencha os campos");
+            }
         });
     });
 </script>

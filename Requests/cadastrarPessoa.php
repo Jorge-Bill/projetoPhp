@@ -1,7 +1,12 @@
 <?php
 
+require_once "../paginas/conecta.php";
+
+header('Content-Type: application/json');
+
 $msg = ['results' => [
     'currect' => [
+        'message' => 'funciona!',
         'status' => 200
     ],
     'error' => [
@@ -20,11 +25,11 @@ $msg = ['results' => [
             'foto'      => $_FILES['foto']
         ];
 
-        $destino = 'imagens/';
+        $destino = '../imagens/';
 
         $uploadfile = $destino . basename($pessoa->foto['name']);
 
-        if(!preg_match('/^image\/(pjpeg|jpeg|png|gif|bmp)$/', $pessoa->foto['type'])){
+        if(!preg_match('/^image\/(pjpeg|jpeg|png|gif|bmp|jpg)$/', $pessoa->foto['type'])){
             print_r ('Isso não é uma imagem válida');
             exit;
         }
@@ -35,6 +40,7 @@ $msg = ['results' => [
 
         if (!move_uploaded_file($pessoa->foto['tmp_name'], $uploadfile)) {
             print_r("Houve um erro ao gravar arquivo na pasta de destino!");
+            exit;
         }
 
         $pdo = conectar();
@@ -43,18 +49,16 @@ $msg = ['results' => [
 
         $cadastrarPessoa = $pdo->prepare($sql);
 
-        $cadastrarPessoa->bindParam(":nome", $pessoa->nome);
-        $cadastrarPessoa->bindParam(":foto", $pessoa->foto['name']);
+        $cadastrarPessoa->bindParam(":nome",   $pessoa->nome);
+        $cadastrarPessoa->bindParam(":foto",   $pessoa->foto['name']);
         $cadastrarPessoa->bindParam(":perfil", $pessoa->perfil);
-        $cadastrarPessoa->bindParam(":senha", $pessoa->senha);
-        $cadastrarPessoa->bindParam(":email", $pessoa->email);
+        $cadastrarPessoa->bindParam(":senha",  $pessoa->senha);
+        $cadastrarPessoa->bindParam(":email",  $pessoa->email);
 
         if ($cadastrarPessoa->execute()){
             echo json_encode($msg['results']['currect']);
         }
         else{
-            echo "Erro ao cadastrar";
-            print_r($cadastrarPessoa->errorInfo());
             echo json_encode($msg['results']['error']);
         }
 
