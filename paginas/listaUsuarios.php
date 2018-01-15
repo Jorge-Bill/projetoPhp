@@ -16,9 +16,9 @@ $usuario = $_SESSION['usuario'];
 <br>
 <hr>
 
-    <div class="container" id="cartao">
-        <div class="row">
-            <?php foreach ($detalhesPessoa as $key => $pessoa){ ?>
+<div class="container" id="cartao">
+    <div class="row">
+        <?php foreach ($detalhesPessoa as $key => $pessoa){ ?>
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail" style=" box-shadow: 1px 1px 1px #dbdbdb;">
                     <img class="img-responsive imgCard" src="../imagens/<?=ucfirst(strtolower($pessoa->foto));?>" alt="foto de perfil">
@@ -31,18 +31,51 @@ $usuario = $_SESSION['usuario'];
                         </a>
                         <?php if($usuario['perfil'] == "Admin"): ?>
                             <a class="btn btn-sm btn-warning" href="/navegacao.php?page=editarForm&id=<?=$pessoa->id;?>">
-                              <span class="glyphicon glyphicon-pencil"></span> Editar
+                                <span class="glyphicon glyphicon-pencil"></span> Editar
                             </a>
                             <button onclick="apagarConf()" class="btn btn-sm btn-danger">
-                               <span class="glyphicon glyphicon-trash"></span>  Excluir
+                                <span class="glyphicon glyphicon-trash"></span>  Excluir
                             </button>
                         <?php endif; ?>
                     </div>
                 </div>
             </div>
-            <?php } ?>
-        </div>
+        <?php } ?>
     </div>
+
+    <div class="text-center">
+
+        <nav aria-label="Page navigation">
+            <ul class="pager">
+                <li>
+                    <a href="navegacao.php?page=listaUsuarios&pagination=<?= $pagina = 1; ?>" aria-label="Previous">
+                        <span aria-hidden="true">Primeira</span>
+                    </a>
+                </li>
+                <li><a href="navegacao.php?page=listaUsuarios&pagination=<?= $pagina = 1; ?>">1</a></li>
+                <li><a href="navegacao.php?page=listaUsuarios&pagination=<?= $pagina = 2; ?>">2</a></li>
+                <li><a href="navegacao.php?page=listaUsuarios&pagination=<?= $pagina = 3; ?>">3</a></li>
+                <li><a href="navegacao.php?page=listaUsuarios&pagination=<?= $pagina = 4; ?>">4</a></li>
+                <li>
+                    <a href="navegacao.php?page=listaUsuarios&pagination=<?= $pagina = 4; ?>" aria-label="Next">
+                        <span aria-hidden="true">Última</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!---->
+        <!--            --><?php //if ($pagina > 1): ?>
+        <!--                <a href="navegacao.php?page=listaUsuarios&pagination=--><?//= $pagina - 1; ?><!--" class="btn btn-default glyphicon glyphicon glyphicon-chevron-left"></a> --->
+        <!--            --><?php //else: ?>
+        <!--                <p class="glyphicon glyphicon-chevron-left"></p>-->
+        <!--            --><?php //endif; ?>
+        <!--            --><?php //if (($totalPaginas) > $pagina): ?>
+        <!--                <a href="navegacao.php?page=listaUsuarios&pagination=--><?//= $pagina + 1; ?><!--" class="btn btn-default glyphicon glyphicon-chevron-right"></a>-->
+        <!--            --><?php //else: ?>
+        <!--                <p class="glyphicon glyphicon-chevron-right glyphicon"></p>-->
+        <!--            --><?php //endif; ?>
+    </div>
+</div>
 
 <div class="panel panel-default " id="tabela">
     <div class="panel-heading">
@@ -60,9 +93,9 @@ $usuario = $_SESSION['usuario'];
             </tr>
             </thead>
             <tbody>
-<!--            --><?php
-//                while ($calculete=$query->fetch(PDO::FETCH_ASSOC)){
-//            ?>
+            <!--            --><?php
+            //                while ($calculete=$query->fetch(PDO::FETCH_ASSOC)){
+            //            ?>
             <?php foreach ($detalhesPessoa as $key => $pessoa): ?>
                 <tr>
                     <td><?= $key + 1; ?></td>
@@ -84,19 +117,43 @@ $usuario = $_SESSION['usuario'];
                     </td>
                 </tr>
             <?php endforeach; ?>
-<!--            --><?php
-//                }
-//            ?>
+            <!--            --><?php
+            //                }
+            //            ?>
             </tbody>
         </table>
-        <div>
-            <?php
-            while ($i <= $calculete){
-                echo "<ul class='pagination pagination-sm'><li class='page-item'><a class='page-link label-info' 
-                    href='?listaUsuarios=$i'>$i</a></li></ul>";
-                $i++;
-            }
-            ?>
+        <br>
+        <div class="text-center">
+
+            <nav aria-label="Page navigation">
+                <ul class="pager">
+                    <li>
+                        <a href="navegacao.php?page=listaUsuarios&pagination=<?= $pagina = 1; ?>" aria-label="Previous">
+                            <span aria-hidden="true">Primeira</span>
+                        </a>
+                    </li>
+                    <li><a href="navegacao.php?page=listaUsuarios&pagination=<?= $pagina = 1; ?>">1</a></li>
+                    <li><a href="navegacao.php?page=listaUsuarios&pagination=<?= $pagina = 2; ?>">2</a></li>
+                    <li><a href="navegacao.php?page=listaUsuarios&pagination=<?= $pagina = 3; ?>">3</a></li>
+                    <li><a href="navegacao.php?page=listaUsuarios&pagination=<?= $pagina = 4; ?>">4</a></li>
+                    <li>
+                        <a href="navegacao.php?page=listaUsuarios&pagination=<?= $pagina = 4; ?>" aria-label="Next">
+                            <span aria-hidden="true">Última</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!---->
+            <!--            --><?php //if ($pagina > 1): ?>
+            <!--                <a href="navegacao.php?page=listaUsuarios&pagination=--><?//= $pagina - 1; ?><!--" class="btn btn-default glyphicon glyphicon glyphicon-chevron-left"></a> --->
+            <!--            --><?php //else: ?>
+            <!--                <p class="glyphicon glyphicon-chevron-left"></p>-->
+            <!--            --><?php //endif; ?>
+            <!--            --><?php //if (($totalPaginas) > $pagina): ?>
+            <!--                <a href="navegacao.php?page=listaUsuarios&pagination=--><?//= $pagina + 1; ?><!--" class="btn btn-default glyphicon glyphicon-chevron-right"></a>-->
+            <!--            --><?php //else: ?>
+            <!--                <p class="glyphicon glyphicon-chevron-right glyphicon"></p>-->
+            <!--            --><?php //endif; ?>
         </div>
     </div>
 </div>
@@ -107,7 +164,7 @@ $usuario = $_SESSION['usuario'];
     function apagarConf(){
         let apagar = confirm('Deseja realmente excluir este registro?');
         if (apagar){
-            window.location = "/navegacao.php?page=deletarUsuario&id=<?=$pessoa->id;?>";
+            window.location = "/navegacao.php?page=deletarUsuario&id=<?=$i->id;?>";
         }
         else{
             event.preventDefault();
@@ -124,9 +181,8 @@ $usuario = $_SESSION['usuario'];
         $("#cartao").fadeIn( 700 ).show();
     }
     $( document ).ready(function() {
-        $("#tabela").hide();
-        $("#cartao").show();
+        $("#tabela").show();
+        $("#cartao").hide();
     });
 
 </script>
-
