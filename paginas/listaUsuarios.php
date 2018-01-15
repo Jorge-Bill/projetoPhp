@@ -1,6 +1,7 @@
 <?php
 require_once "consultarPessoa.php";
 $usuario = $_SESSION['usuario'];
+$paginacao = $_GET['pagination'];
 ?>
 
 <h3>Bem vindo, <?= ucfirst($usuario['nome']); ?></h3>
@@ -63,17 +64,18 @@ $usuario = $_SESSION['usuario'];
                 </li>
             </ul>
         </nav>
-        <!---->
-        <!--            --><?php //if ($pagina > 1): ?>
-        <!--                <a href="navegacao.php?page=listaUsuarios&pagination=--><?//= $pagina - 1; ?><!--" class="btn btn-default glyphicon glyphicon glyphicon-chevron-left"></a> --->
-        <!--            --><?php //else: ?>
-        <!--                <p class="glyphicon glyphicon-chevron-left"></p>-->
-        <!--            --><?php //endif; ?>
-        <!--            --><?php //if (($totalPaginas) > $pagina): ?>
-        <!--                <a href="navegacao.php?page=listaUsuarios&pagination=--><?//= $pagina + 1; ?><!--" class="btn btn-default glyphicon glyphicon-chevron-right"></a>-->
-        <!--            --><?php //else: ?>
-        <!--                <p class="glyphicon glyphicon-chevron-right glyphicon"></p>-->
-        <!--            --><?php //endif; ?>
+
+
+                    <?php if ($paginacao > 1): ?>
+                        <a href="navegacao.php?page=listaUsuarios&pagination=<?= $paginacao - 1; ?>" class="btn btn-default glyphicon glyphicon glyphicon-chevron-left"></a> -
+                    <?php else: ?>
+                        <p class="glyphicon glyphicon-chevron-left"></p>
+                    <?php endif; ?>
+                    <?php if (($totalPaginas) > $paginacao): ?>
+                        <a href="navegacao.php?page=listaUsuarios&pagination=<?= $paginacao + 1; ?>" class="btn btn-default glyphicon glyphicon-chevron-right"></a>
+                    <?php else: ?>
+                        <p class="glyphicon glyphicon-chevron-right glyphicon"></p>
+                    <?php endif; ?>
     </div>
 </div>
 
@@ -128,32 +130,46 @@ $usuario = $_SESSION['usuario'];
             <nav aria-label="Page navigation">
                 <ul class="pager">
                     <li>
-                        <a href="navegacao.php?page=listaUsuarios&pagination=<?= $pagina = 1; ?>" aria-label="Previous">
-                            <span aria-hidden="true">Primeira</span>
+                        <?php if ($paginacao > 1): ?>
+                        <a href="navegacao.php?page=listaUsuarios&pagination=<?= $paginacao - 1; ?>" aria-label="Previous">
+                            <span aria-hidden="true">Anterior</span>
                         </a>
+                        <?php else: ?>
+                            <span class="disabled" aria-hidden="true">Anterior</span>
+                        <?php endif; ?>
                     </li>
-                    <li><a href="navegacao.php?page=listaUsuarios&pagination=<?= $pagina = 1; ?>">1</a></li>
-                    <li><a href="navegacao.php?page=listaUsuarios&pagination=<?= $pagina = 2; ?>">2</a></li>
-                    <li><a href="navegacao.php?page=listaUsuarios&pagination=<?= $pagina = 3; ?>">3</a></li>
-                    <li><a href="navegacao.php?page=listaUsuarios&pagination=<?= $pagina = 4; ?>">4</a></li>
+                    <?php
+
+                    for($pag = 1; $pag <= ($totalPaginas);$pag++): ?>
+                    <li><a href="navegacao.php?page=listaUsuarios&pagination=<?= $pag; ?>"><?= $pag; ?></a></li>
+                    <?php  endfor;
+                    ?>
+
+<!--                    <li><a href="navegacao.php?page=listaUsuarios&pagination=--><?//= $paginacao++; ?><!--">2</a></li>-->
+<!--                    <li><a href="navegacao.php?page=listaUsuarios&pagination=--><?//= $pagina = 3; ?><!--">3</a></li>-->
+<!--                    <li><a href="navegacao.php?page=listaUsuarios&pagination=--><?//= $pagina = 4; ?><!--">4</a></li>-->
                     <li>
-                        <a href="navegacao.php?page=listaUsuarios&pagination=<?= $pagina = 4; ?>" aria-label="Next">
-                            <span aria-hidden="true">Última</span>
+                        <?php if (($totalPaginas) > $paginacao): ?>
+                        <a href="navegacao.php?page=listaUsuarios&pagination=<?= $paginacao + 1; ?>" aria-label="Next">
+                            <span aria-hidden="true">Próximo</span>
                         </a>
+                        <?php else: ?>
+                            <span class="disabled" aria-hidden="true">Última</span>
+                        <?php endif; ?>
                     </li>
                 </ul>
             </nav>
-            <!---->
-            <!--            --><?php //if ($pagina > 1): ?>
-            <!--                <a href="navegacao.php?page=listaUsuarios&pagination=--><?//= $pagina - 1; ?><!--" class="btn btn-default glyphicon glyphicon glyphicon-chevron-left"></a> --->
-            <!--            --><?php //else: ?>
-            <!--                <p class="glyphicon glyphicon-chevron-left"></p>-->
-            <!--            --><?php //endif; ?>
-            <!--            --><?php //if (($totalPaginas) > $pagina): ?>
-            <!--                <a href="navegacao.php?page=listaUsuarios&pagination=--><?//= $pagina + 1; ?><!--" class="btn btn-default glyphicon glyphicon-chevron-right"></a>-->
-            <!--            --><?php //else: ?>
-            <!--                <p class="glyphicon glyphicon-chevron-right glyphicon"></p>-->
-            <!--            --><?php //endif; ?>
+
+<!--                        --><?php //if ($paginacao > 1): ?>
+<!--                            <a href="navegacao.php?page=listaUsuarios&pagination=--><?//= $paginacao - 1; ?><!--"class="btn btn-default glyphicon glyphicon glyphicon-chevron-left"></a> --->
+<!--                        --><?php //else: ?>
+<!--                            <p class="glyphicon glyphicon-chevron-left"></p>-->
+<!--                        --><?php //endif; ?>
+<!--                        --><?php //if (($totalPaginas) > $paginacao): ?>
+<!--                            <a href="navegacao.php?page=listaUsuarios&pagination=--><?//= $paginacao + 1; ?><!--" class="btn btn-default glyphicon glyphicon-chevron-right"></a>-->
+<!--                        --><?php //else: ?>
+<!--                            <p class="glyphicon glyphicon-chevron-right glyphicon"></p>-->
+<!--                        --><?php //endif; ?>
         </div>
     </div>
 </div>
