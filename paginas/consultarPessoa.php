@@ -37,7 +37,7 @@ $totalRegistro  = $dados->rowCount();
 
 $totalPaginas   = ceil($totalRegistro/$totalpg);
 
-for($i = 1; $i <= $totalPaginas; $i++) {
-    echo $i;
-}
-?>
+//for($i = 1; $i <= $totalPaginas; $i++) {
+//    echo $i;
+//}
+

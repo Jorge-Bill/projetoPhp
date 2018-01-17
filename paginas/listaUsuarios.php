@@ -17,9 +17,9 @@ $paginacao = $_GET['pagination'];
 <br>
 <hr>
 
-<div class="container" id="cartao">
+<div class="container sumir" id="cartao">
     <div class="row">
-        <?php foreach ($detalhesPessoa as $key => $pessoa){ ?>
+        <?php foreach ($detalhesPessoa as $key => $pessoa): ?>
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail" style=" box-shadow: 1px 1px 1px #dbdbdb;">
                     <img class="img-responsive imgCard" src="../imagens/<?=ucfirst(strtolower($pessoa->foto));?>" alt="foto de perfil">
@@ -41,41 +41,7 @@ $paginacao = $_GET['pagination'];
                     </div>
                 </div>
             </div>
-        <?php } ?>
-    </div>
-
-    <div class="text-center">
-
-        <nav aria-label="Page navigation">
-            <ul class="pager">
-                <li>
-                    <a href="navegacao.php?page=listaUsuarios&pagination=<?= $pagina = 1; ?>" aria-label="Previous">
-                        <span aria-hidden="true">Primeira</span>
-                    </a>
-                </li>
-                <li><a href="navegacao.php?page=listaUsuarios&pagination=<?= $pagina = 1; ?>">1</a></li>
-                <li><a href="navegacao.php?page=listaUsuarios&pagination=<?= $pagina = 2; ?>">2</a></li>
-                <li><a href="navegacao.php?page=listaUsuarios&pagination=<?= $pagina = 3; ?>">3</a></li>
-                <li><a href="navegacao.php?page=listaUsuarios&pagination=<?= $pagina = 4; ?>">4</a></li>
-                <li>
-                    <a href="navegacao.php?page=listaUsuarios&pagination=<?= $pagina = 4; ?>" aria-label="Next">
-                        <span aria-hidden="true">Última</span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-
-
-                    <?php if ($paginacao > 1): ?>
-                        <a href="navegacao.php?page=listaUsuarios&pagination=<?= $paginacao - 1; ?>" class="btn btn-default glyphicon glyphicon glyphicon-chevron-left"></a> -
-                    <?php else: ?>
-                        <p class="glyphicon glyphicon-chevron-left"></p>
-                    <?php endif; ?>
-                    <?php if (($totalPaginas) > $paginacao): ?>
-                        <a href="navegacao.php?page=listaUsuarios&pagination=<?= $paginacao + 1; ?>" class="btn btn-default glyphicon glyphicon-chevron-right"></a>
-                    <?php else: ?>
-                        <p class="glyphicon glyphicon-chevron-right glyphicon"></p>
-                    <?php endif; ?>
+        <?php endforeach; ?>
     </div>
 </div>
 
@@ -95,9 +61,6 @@ $paginacao = $_GET['pagination'];
             </tr>
             </thead>
             <tbody>
-            <!--            --><?php
-            //                while ($calculete=$query->fetch(PDO::FETCH_ASSOC)){
-            //            ?>
             <?php foreach ($detalhesPessoa as $key => $pessoa): ?>
                 <tr>
                     <td><?= $key + 1; ?></td>
@@ -119,62 +82,70 @@ $paginacao = $_GET['pagination'];
                     </td>
                 </tr>
             <?php endforeach; ?>
-            <!--            --><?php
-            //                }
-            //            ?>
             </tbody>
         </table>
         <br>
-        <div class="text-center">
 
-            <nav aria-label="Page navigation">
-                <ul class="pager">
-                    <li>
-                        <?php if ($paginacao > 1): ?>
-                        <a href="navegacao.php?page=listaUsuarios&pagination=<?= $paginacao - 1; ?>" aria-label="Previous">
-                            <span aria-hidden="true">Anterior</span>
-                        </a>
-                        <?php else: ?>
-                            <span class="disabled" aria-hidden="true">Anterior</span>
-                        <?php endif; ?>
-                    </li>
-                    <?php
-
-                    for($pag = 1; $pag <= ($totalPaginas);$pag++): ?>
-                    <li><a href="navegacao.php?page=listaUsuarios&pagination=<?= $pag; ?>"><?= $pag; ?></a></li>
-                    <?php  endfor;
-                    ?>
-
-<!--                    <li><a href="navegacao.php?page=listaUsuarios&pagination=--><?//= $paginacao++; ?><!--">2</a></li>-->
-<!--                    <li><a href="navegacao.php?page=listaUsuarios&pagination=--><?//= $pagina = 3; ?><!--">3</a></li>-->
-<!--                    <li><a href="navegacao.php?page=listaUsuarios&pagination=--><?//= $pagina = 4; ?><!--">4</a></li>-->
-                    <li>
-                        <?php if (($totalPaginas) > $paginacao): ?>
-                        <a href="navegacao.php?page=listaUsuarios&pagination=<?= $paginacao + 1; ?>" aria-label="Next">
-                            <span aria-hidden="true">Próximo</span>
-                        </a>
-                        <?php else: ?>
-                            <span class="disabled" aria-hidden="true">Última</span>
-                        <?php endif; ?>
-                    </li>
-                </ul>
-            </nav>
-
-<!--                        --><?php //if ($paginacao > 1): ?>
-<!--                            <a href="navegacao.php?page=listaUsuarios&pagination=--><?//= $paginacao - 1; ?><!--"class="btn btn-default glyphicon glyphicon glyphicon-chevron-left"></a> --->
-<!--                        --><?php //else: ?>
-<!--                            <p class="glyphicon glyphicon-chevron-left"></p>-->
-<!--                        --><?php //endif; ?>
-<!--                        --><?php //if (($totalPaginas) > $paginacao): ?>
-<!--                            <a href="navegacao.php?page=listaUsuarios&pagination=--><?//= $paginacao + 1; ?><!--" class="btn btn-default glyphicon glyphicon-chevron-right"></a>-->
-<!--                        --><?php //else: ?>
-<!--                            <p class="glyphicon glyphicon-chevron-right glyphicon"></p>-->
-<!--                        --><?php //endif; ?>
-        </div>
     </div>
 </div>
 
+<div class="text-center">
+
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <?php if ($paginacao != 1): ?>
+                <li>
+                    <a href="navegacao.php?page=listaUsuarios&pagination=<?= 1; ?>"><span aria-hidden="true">&laquo;</span></a>
+                </li>
+            <?php endif; ?>
+            <li>
+                <?php if ($paginacao > 1): ?>
+                    <a href="navegacao.php?page=listaUsuarios&pagination=<?= $paginacao - 1; ?>"aria-label="Previous">
+                        <span aria-hidden="true">&lsaquo;</span>
+                    </a>
+                <?php else: ?>
+                      <span class="disabled" aria-hidden="true">Primeira</span>
+                <?php endif; ?>
+            </li>
+<!--            --><?php //for ($pag = 1; $pag <= ($totalPaginas);$pag++):
+//                $estilo = "";
+//                if ($paginacao == $pag)
+//                    $estilo = "class='active'";
+//                ?>
+            <?php if ($paginacao > 1): ?>
+                <li><a href="navegacao.php?page=listaUsuarios&pagination=<?= $paginacao - 1; ?>"><?= $paginacao - 1; ?></a></li>
+            <?php endif; ?>
+                <li><a href="navegacao.php?page=listaUsuarios&pagination=<?= $paginacao; ?>"><?= $paginacao; ?></a></li>
+            <?php if ($paginacao < $totalPaginas): ?>
+                <li><a href="navegacao.php?page=listaUsuarios&pagination=<?= $paginacao + 1; ?>"><?= $paginacao + 1; ?></a></li>
+            <?php    endif; ?>
+<!--            --><?php //endfor; ?>
+            <li>
+                <?php if (($totalPaginas) > $paginacao): ?>
+                    <a href="navegacao.php?page=listaUsuarios&pagination=<?= $paginacao + 1; ?>"aria-label="Next">
+                        <span aria-hidden="true">&rsaquo;</span>
+                    </a>
+                <?php else: ?>
+                    <span class="disabled" aria-hidden="true">Último</span>
+                <?php endif; ?>
+            </li>
+            <?php if ($totalPaginas > $paginacao): ?>
+           <li>
+               <a href="navegacao.php?page=listaUsuarios&pagination=<?= $totalPaginas; ?>"><span aria-hidden="true">&raquo;</span></a>
+           </li>
+            <?php endif; ?>
+        </ul>
+    </nav>
+
+</div>
 <hr>
+
+<style>
+    .sumir{
+        display: none;
+    }
+</style>
+
 <script>
 
     function apagarConf(){
@@ -194,7 +165,7 @@ $paginacao = $_GET['pagination'];
 
     function mostarCard(){
         $("#tabela").hide();
-        $("#cartao").fadeIn( 700 ).show();
+        $("#cartao").removeClass( "sumir" ).fadeIn( 700 ).show();
     }
     $( document ).ready(function() {
         $("#tabela").show();
