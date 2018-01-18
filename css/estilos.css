@@ -39,3 +39,7 @@ body{
     width: 350px !important;
     height: 253px !important;
 }
+
+.sumir{
+    display: none;
+}

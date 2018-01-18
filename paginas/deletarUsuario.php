@@ -4,8 +4,6 @@ $pessoa = (object)[
     'id'      => $_GET['id'],
 ];
 
-$id  = $_GET['id'];
-
 $pdo = conectar();
 
 $deletarPessoa = $pdo->prepare('DELETE FROM pessoa WHERE id = :id');
