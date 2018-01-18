@@ -25,7 +25,7 @@ if (array_key_exists('usuario',$_SESSION)):
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand glyphicon glyphicon-flash" href="/navegacao.php?page=listaUsuarios"></a>
+            <a class="navbar-brand glyphicon glyphicon-flash" href="/navegacao.php?page=listaUsuarios&pagination=1"></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->

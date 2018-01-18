@@ -94,7 +94,7 @@ if($_SESSION) {
                         } else {
                             $('#loginModal').modal('show');
                             $("#confirmacao").text("Bem vindo");
-                            setInterval(function() { window.location = "/navegacao.php?page=listaUsuarios" }, 2000);
+                            setInterval(function() { window.location = "/navegacao.php?page=listaUsuarios&pagination=1" }, 2000);
                         }
                     });
                 } else {

@@ -50,7 +50,7 @@ $paginacao = $_GET['pagination'];
         <h1 class="text-center">Lista de usuários</h1>
     </div>
     <div class="panel-body table-responsive">
-        <table class="table">
+        <table class="table table-striped table-bordered">
             <thead>
             <tr>
                 <th>ID</th>

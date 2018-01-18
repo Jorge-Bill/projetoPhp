@@ -65,7 +65,7 @@ if ($editarPessoa->execute()) {
         <div class="clearfix"></div>
         <div class="pull-right">
 
-            <a class="btn btn-default" href="/navegacao.php?page=listaUsuarios"> Cancelar</a>
+            <a class="btn btn-default" href="/navegacao.php?page=listaUsuarios&pagination=1"> Cancelar</a>
             <button type="button" id="editar" class="btn btn-primary">Salvar</button>
         </div>
     </form>
@@ -144,9 +144,7 @@ if ($editarPessoa->execute()) {
                         } else {
                             $('#editarModal').modal('show');
                             $("#confirmacao").text("Registro editado com sucesso");
-                            setInterval(function () {
-                                window.location = "/navegacao.php?page=listaUsuarios"
-                            }, 2000);
+                            setInterval(function() { window.location = "/navegacao.php?page=listaUsuarios&pagination=1" }, 2000);
                         }
                     }
                 );

@@ -29,7 +29,7 @@
         <div id="msg"></div>
         <div class="clearfix"></div>
         <div class="pull-right">
-            <a class="btn btn-default" href="/navegacao.php?page=listaUsuarios"> Cancelar</a>
+            <a class="btn btn-default" href="/navegacao.php?page=listaUsuarios&pagination=1"> Cancelar</a>
             <button type="button" value="Submit" class="btn btn-primary" id="cadastrar">Cadastrar</button>
         </div>
     </form>
@@ -91,7 +91,7 @@
                         } else {
                             $('#cadastroModal').modal('show');
                             $("#confirmacao").text("Pessoa cadastrada com sucesso");
-                            setInterval(function() { window.location = "/navegacao.php?page=listaUsuarios" }, 2000);
+                            setInterval(function() { window.location = "/navegacao.php?page=listaUsuarios&pagination=1" }, 2000);
                         }
                     }
                 );

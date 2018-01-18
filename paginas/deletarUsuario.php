@@ -11,7 +11,7 @@ $deletarPessoa = $pdo->prepare('DELETE FROM pessoa WHERE id = :id');
 $deletarPessoa->bindParam(":id", $pessoa->id);
 
 if ($deletarPessoa->execute()){
-    header('Location: /navegacao.php?page=listaUsuarios');
+    header('Location: /navegacao.php?page=listaUsuarios&pagination=1');
 }
 
 else{
