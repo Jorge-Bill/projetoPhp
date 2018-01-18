@@ -28,7 +28,7 @@ if($_SESSION) {
 <script src="js/jquery.validate.min.js"></script>
 
 <div class="container login col-md-4 col-md-offset-4 col-xs-12 thumbnail">
-    <h1 class="text-center animated infinite pulse">Login <span class="glyphicon glyphicon-flash animated infinite pulse"></span></h1>
+    <h1 class="text-center">Login <span class="glyphicon glyphicon-flash"></span></h1>
     <hr>
     <form id="loginForm">
         <div class="form-group col-xs-12 col-md-6">
@@ -73,7 +73,6 @@ if($_SESSION) {
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div><!-- /.modal -->
-
 
     <script>
         $(document).ready(function(){

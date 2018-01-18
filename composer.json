@@ -1,0 +1,22 @@
+{
+  "name": "william/jorge",
+  "description": "adcionamos o composer no projeto por causa do mpdf",
+  "type": "project",
+  "require": {
+    "mpdf/mpdf": "7.0.3",
+    "composer/composer": "1.6.2"
+  },
+  "authors": [
+    {
+      "name": "William Aquino e Jorge Mendes",
+      "email": "william.aquino@gmail.com / jorge.mendesx@gmail.com",
+    }
+  ],
+  "minimum-stability": "dev",
+  "autoload": {
+    "psr-4": {"App\\": "App/"}
+  },
+  "config": {
+    "bin-dir": "bin/"
+  }
+}

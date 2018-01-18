@@ -100,7 +100,7 @@ $paginacao = $_GET['pagination'];
                 </li>
             <?php endif; ?>
             <li>
-                <?php if ($paginacao >- 1): ?>
+                <?php if ($paginacao > 1): ?>
                     <a href="navegacao.php?page=listaUsuarios&pagination=<?= $paginacao - 1; ?>"aria-label="Previous">
                         <span aria-hidden="true">&lsaquo;</span>
                     </a>

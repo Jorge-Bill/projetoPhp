@@ -4,7 +4,7 @@ $pdo = conectar();
 
 $pagina = array_key_exists('pagination', $_GET) ?  $_GET["pagination"] : 1;
 
-$totalpg        = 10;
+$totalpg        = 3;
 $offset         = ($pagina - 1) * $totalpg;
 
 $detalhesPessoa = $pdo->prepare("SELECT 
