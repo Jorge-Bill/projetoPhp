@@ -5,7 +5,6 @@
     <title>Ganso | William</title>
     <link rel="stylesheet" href="/../css/bootstrap.min.css">
     <link rel="stylesheet" href="/../css/estilos.css">
-    <link rel="stylesheet" href="/../css/animate.css">
 </head>
 <body>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
