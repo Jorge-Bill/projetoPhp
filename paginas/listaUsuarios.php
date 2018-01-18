@@ -11,8 +11,8 @@ $paginacao = $_GET['pagination'];
     </a>
 <?php endif; ?>
 <div class="pull-right">
-    <button onclick="mostarCard()" class="btn btn-default btnDev"><span class="glyphicon glyphicon-th-large"></span></button>
-    <button onclick="mostarTab()" class="btn btn-default btnDev"><span class="glyphicon glyphicon-th-list"></span></button>
+    <button id="btnCard" onclick="mostarCard()" class="btn btn-default btnDev"><span class="glyphicon glyphicon-th-large"></span></button>
+    <button id="btnTab" onclick="mostarTab()" class="btn btn-default btnDev"><span class="glyphicon glyphicon-th-list"></span></button>
 </div>
 <br>
 <hr>
@@ -195,15 +195,20 @@ $paginacao = $_GET['pagination'];
     function mostarTab(){
         $("#tabela").fadeIn( 700 ).show();
         $("#cartao").hide();
+        $("#btnTab").addClass("active");
+        $("#btnCard").removeClass("active");
     }
 
     function mostarCard(){
         $("#tabela").hide();
         $("#cartao").removeClass( "sumir" ).fadeIn( 700 ).show();
+        $("#btnTab").removeClass("active");
+        $("#btnCard").addClass("active");
     }
     $( document ).ready(function() {
         $("#tabela").show();
         $("#cartao").hide();
+        $("#btnTab").addClass("active");
     });
 
 </script>
