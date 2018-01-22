@@ -1,7 +1,13 @@
 <?php
-require_once "consultarPessoa.php";
+require_once "Requests/consultarPessoa.php";
 $usuario = $_SESSION['usuario'];
-$paginacao = $_GET['pagination'];
+
+$paginacao = 1;
+
+if ($_GET && array_key_exists('pagination', $_GET)){
+    $paginacao = $_GET['pagination'];
+}
+
 ?>
 
 <h3>Bem vindo, <?= ucfirst($usuario['nome']); ?></h3>
@@ -183,7 +189,27 @@ $paginacao = $_GET['pagination'];
             $("#mensagem").text("Deseja realmente excluir este registro?");
 
             $( "#apagarRegistro" ).click(function() {
-                window.location = "/navegacao.php?page=deletarUsuario&id="+id;
+                // window.location = "/navegacao.php?page=deletarUsuario&id="+id;
+
+                let form = new FormData();
+                form.append('id', id);
+                $.ajax({
+                    method: "POST",
+                    processData: false,
+                    contentType: false,
+                    url: "crud/Requests/deletarUsuario.php",
+                    data: form
+                })
+                    .then(
+                        function success(data) {
+                            if (data.status !== 200) {
+                                window.location.reload();
+                            } else {
+                                $('#tentativaExc').modal('show');
+                                $("#mensagemExc").text("impossível excluir, tente novamente");
+                            }
+                        }
+                    );
             });
         }else {
             $('#tentativaExc').modal('show');

@@ -25,7 +25,7 @@ if($_SESSION) {
     }
 </style>
 
-<script src="js/jquery.validate.min.js"></script>
+<script src="/js/jquery.validate.min.js"></script>
 
 <div class="container login col-md-4 col-md-offset-4 col-xs-12 thumbnail">
     <h1 class="text-center">Login <span class="glyphicon glyphicon-flash"></span></h1>
@@ -84,7 +84,7 @@ if($_SESSION) {
                 if( email !== "" && senha !== "" ) {
                     $.ajax({
                         method: "POST",
-                        url: "login_session.php",
+                        url: "login/login_session.php",
                         data: { email: email, senha: senha }
                     }).done(function( data ) {
                         if(data.status !== 200 ) {
@@ -94,7 +94,7 @@ if($_SESSION) {
                         } else {
                             $('#loginModal').modal('show');
                             $("#confirmacao").text("Bem vindo");
-                            setInterval(function() { window.location = "/navegacao.php?page=listaUsuarios&pagination=1" }, 2000);
+                            setInterval(function() { window.location = "/navegacao.php" }, 2000);
                         }
                     });
                 } else {

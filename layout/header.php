@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Ganso | William</title>
-    <link rel="stylesheet" href="/../css/bootstrap.min.css">
-    <link rel="stylesheet" href="/../css/estilos.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 
 <?php
-
-if (array_key_exists('usuario',$_SESSION)):
-    $usuario = $_SESSION['usuario'];
-    ?>
+    if (array_key_exists('usuario',$_SESSION)):
+        $usuario = $_SESSION['usuario'];
+?>
 
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
@@ -35,11 +34,12 @@ if (array_key_exists('usuario',$_SESSION)):
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Opções <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <?php
-                        if (isset($usuario['nome'])): ?>
-                            <li>
-                                <a href="/navegacao.php?page=perfilUsuario&id=<?=$usuario['id'];?>">Olá, <?php echo ucfirst($usuario['nome']); ?></a>
-                            </li>
-                        <?php endif; ?>
+                            if (isset($usuario['nome'])): ?>
+                                <li>
+                                    <a href="/navegacao.php?page=perfilUsuario&id=<?=$usuario['id'];?>">Olá, <?php echo ucfirst($usuario['nome']); ?></a>
+                                </li>
+                            <?php endif;
+                            ?>
 <!--                        <li>-->
 <!--                            <a href="/navegacao.php?page=perfilUsuario&id=--><?//=$usuario['id'];?><!--">Perfil</a>-->
 <!--                        </li>-->

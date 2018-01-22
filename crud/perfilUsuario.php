@@ -41,7 +41,7 @@ if ($perfil->execute()){
 
                         <hr>
                         <div class="pull-right">
-                            <a class="btn btn-success glyphicon glyphicon-list-alt" href="/navegacao.php?page=listaUsuarios&pagination=1"> Voltar</a>
+                            <a class="btn btn-success glyphicon glyphicon-list-alt" href="/navegacao.php?page=listaUsuarios"> Voltar</a>
                         </div>
 <!--                        --><?php //if($usuario['perfil'] == "Admin"): ?>
 <!--                            <div class="pull-right">-->
@@ -53,5 +53,3 @@ if ($perfil->execute()){
             </div>
         </div>
     </div>
-<?php
-require_once "footer.php";?>

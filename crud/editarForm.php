@@ -133,7 +133,7 @@ if ($editarPessoa->execute()) {
                 method: "POST",
                 processData: false,
                 contentType: false,
-                url: "/Requests/editarUsuario.php",
+                url: "crud/Requests/editarUsuario.php",
                 data: form
             })
                 .then(
@@ -144,7 +144,7 @@ if ($editarPessoa->execute()) {
                         } else {
                             $('#editarModal').modal('show');
                             $("#confirmacao").text("Registro editado com sucesso");
-                            setInterval(function() { window.location = "/navegacao.php?page=listaUsuarios&pagination=1" }, 2000);
+                            setInterval(function() { window.location = "/navegacao.php?page=listaUsuarios" }, 2000);
                         }
                     }
                 );

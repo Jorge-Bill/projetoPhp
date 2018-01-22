@@ -1,6 +1,6 @@
 <?php
 
-require_once "../paginas/conecta.php";
+require_once "../../conecta.php";
 
 header('Content-Type: application/json');
 
@@ -25,7 +25,7 @@ $msg = ['results' => [
             'foto'      => $_FILES['foto']
         ];
 
-        $destino = '../imagens/';
+        $destino = '../../imagens/';
 
         $uploadfile = $destino . basename($pessoa->foto['name']);
 

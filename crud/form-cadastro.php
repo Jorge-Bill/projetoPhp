@@ -80,7 +80,7 @@
                     method: "POST",
                     processData: false,
                     contentType: false,
-                    url: "/Requests/cadastrarPessoa.php",
+                    url: "crud/Requests/cadastrarPessoa.php",
                     data: form
                 })
                 .then(
@@ -91,7 +91,7 @@
                         } else {
                             $('#cadastroModal').modal('show');
                             $("#confirmacao").text("Pessoa cadastrada com sucesso");
-                            setInterval(function() { window.location = "/navegacao.php?page=listaUsuarios&pagination=1" }, 2000);
+                            setInterval(function() { window.location = "/navegacao.php?page=listaUsuarios" }, 2000);
                         }
                     }
                 );
