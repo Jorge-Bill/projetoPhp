@@ -1,4 +1,4 @@
-<script src="/js/jquery.validate.min.js"></script>
+<script src="resources/js/jquery.validate.min.js"></script>
 <div class="col-md-7 col-md-offset-2 col-xs-12">
     <h1 class="text-center">Cadastrar</h1>
     <form id="cadastroPessoa">
