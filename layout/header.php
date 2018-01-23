@@ -24,7 +24,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand glyphicon glyphicon-flash" href="/navegacao.php?page=listaUsuarios&pagination=1"></a>
+            <a class="navbar-brand glyphicon glyphicon-flash" href="/navegacao.php?page=listaUsuarios"></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -50,7 +50,8 @@
                         <?php endif; ?>
                         <li role="separator" class="divider"></li>
                         <li>
-                            <a href="/navegacao.php?page=logout">Sair</a>
+<!--                            <a href="/navegacao.php?page=logout">Sair</a>-->
+                            <a href="#">Sair</a>
                         </li>
                     </ul>
                 </li>

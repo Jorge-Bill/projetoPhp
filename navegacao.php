@@ -10,8 +10,6 @@ if($_REQUEST && array_key_exists('logado', $_SESSION)) {
 
     $page = $_REQUEST['page'];
 
-//    var_dump($page);
-
     if(array_key_exists('page', $_REQUEST)) {
 
         $path = __DIR__ . '/crud/' . $page. '.php';

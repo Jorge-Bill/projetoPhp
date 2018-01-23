@@ -29,7 +29,7 @@
         <div id="msg"></div>
         <div class="clearfix"></div>
         <div class="pull-right">
-            <a class="btn btn-default" href="/navegacao.php?page=listaUsuarios&pagination=1"> Cancelar</a>
+            <a class="btn btn-default" href="/navegacao.php?page=listaUsuarios"> Cancelar</a>
             <button type="button" value="Submit" class="btn btn-primary" id="cadastrar">Cadastrar</button>
         </div>
     </form>

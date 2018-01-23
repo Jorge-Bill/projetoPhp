@@ -65,7 +65,7 @@ if ($editarPessoa->execute()) {
         <div class="clearfix"></div>
         <div class="pull-right">
 
-            <a class="btn btn-default" href="/navegacao.php?page=listaUsuarios&pagination=1"> Cancelar</a>
+            <a class="btn btn-default" href="/navegacao.php?page=listaUsuarios"> Cancelar</a>
             <button type="button" id="editar" class="btn btn-primary">Salvar</button>
         </div>
     </form>
