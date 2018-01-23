@@ -5,6 +5,3 @@
 
     header("location: /index.php");
 ?>
-<!--<script>-->
-<!--    window.location = "../../index.php";-->
-<!--</script>-->

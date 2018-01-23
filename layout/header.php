@@ -40,9 +40,6 @@
                                 </li>
                             <?php endif;
                             ?>
-<!--                        <li>-->
-<!--                            <a href="/navegacao.php?page=perfilUsuario&id=--><?//=$usuario['id'];?><!--">Perfil</a>-->
-<!--                        </li>-->
                        <?php if ($usuario['perfil'] == "Admin"): ?>
                         <li>
                             <a href="/navegacao.php?page=editarForm&id=<?=$usuario['id'];?>">Editar</a>
@@ -50,8 +47,7 @@
                         <?php endif; ?>
                         <li role="separator" class="divider"></li>
                         <li>
-<!--                            <a href="/navegacao.php?page=logout">Sair</a>-->
-                            <a href="#">Sair</a>
+                            <a href="/navegacao.php?page=logout">Sair</a>
                         </li>
                     </ul>
                 </li>

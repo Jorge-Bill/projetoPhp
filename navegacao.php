@@ -14,6 +14,12 @@ if($_REQUEST && array_key_exists('logado', $_SESSION)) {
 
         $path = __DIR__ . '/crud/' . $page. '.php';
 
+        if ($page == 'logout'){
+
+            $path = __DIR__ . '/login/' . $page. '.php';
+
+        }
+
         if(file_exists($path)) {
 
             require_once $path;
