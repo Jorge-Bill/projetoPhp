@@ -80,7 +80,7 @@
                     method: "POST",
                     processData: false,
                     contentType: false,
-                    url: "crud/Requests/cadastrarPessoa.php",
+                    url: "crud/requests/cadastrarPessoa.php",
                     data: form
                 })
                 .then(

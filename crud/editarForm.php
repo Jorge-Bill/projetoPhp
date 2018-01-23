@@ -1,6 +1,5 @@
 <?php
-//print_r($_SESSION);
-$id = $_REQUEST['id'];
+$id = $_GET['id'];
 
 $pdo = conectar();
 
@@ -133,7 +132,7 @@ if ($editarPessoa->execute()) {
                 method: "POST",
                 processData: false,
                 contentType: false,
-                url: "crud/Requests/editarUsuario.php",
+                url: "crud/requests/editarUsuario.php",
                 data: form
             })
                 .then(

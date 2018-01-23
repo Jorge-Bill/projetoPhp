@@ -1,8 +1,6 @@
 <?php
 
-//require_once "editarUsuario.php";
-
-$id = $_REQUEST['id'];
+$id = $_GET['id'];
 
 $pdo = conectar();
 
@@ -29,9 +27,9 @@ if ($perfil->execute()){
                             </div>
                         <?php endif; ?>
                     </div>
-                    <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8" >
+                    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8" >
                         <div class="container">
-                            <h2><?php echo $perfil['nome']?></h2>
+                            <h2><?php echo ucfirst($perfil['nome']); ?></h2>
                         </div>
                         <hr>
                         <ul class="container details">
@@ -43,11 +41,6 @@ if ($perfil->execute()){
                         <div class="pull-right">
                             <a class="btn btn-success glyphicon glyphicon-list-alt" href="/navegacao.php?page=listaUsuarios"> Voltar</a>
                         </div>
-<!--                        --><?php //if($usuario['perfil'] == "Admin"): ?>
-<!--                            <div class="pull-right">-->
-<!--                                <a class="btn btn-warning glyphicon glyphicon glyphicon-pencil " href="/navegacao.php?page=editarForm&id=--><?//=$usuario['id'];?><!--"> Editar</a>-->
-<!--                            </div>-->
-<!--                        --><?php //endif; ?>
                     </div>
                 </div>
             </div>

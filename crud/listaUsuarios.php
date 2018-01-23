@@ -1,5 +1,5 @@
 <?php
-require_once "Requests/consultarPessoa.php";
+require_once "requests/consultarPessoa.php";
 $usuario = $_SESSION['usuario'];
 
 $paginacao = 1;
@@ -197,7 +197,7 @@ if ($_GET && array_key_exists('pagination', $_GET)){
                     method: "POST",
                     processData: false,
                     contentType: false,
-                    url: "crud/Requests/deletarUsuario.php",
+                    url: "crud/requests/deletarUsuario.php",
                     data: form
                 })
                     .then(
