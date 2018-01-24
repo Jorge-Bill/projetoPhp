@@ -8,6 +8,8 @@ if (!intval($pagina)) {
     header("Location: /navegacao.php?page=listaUsuarios");
 }
 
+
+
 $totalpg        = 6;
 $offset         = ($pagina - 1) * $totalpg;
 
@@ -40,6 +42,8 @@ $dados->execute();
 $totalRegistro  = $dados->rowCount();
 
 $totalPaginas   = ceil($totalRegistro/$totalpg);
+
+
 
 //for($i = 1; $i <= $totalPaginas; $i++) {
 //    echo $i;

@@ -6,6 +6,7 @@ $paginacao = 1;
 
 $paginacao = ($_GET && array_key_exists('pagination', $_GET)) ? $_GET['pagination'] : 1;
 
+($paginacao > $totalPaginas) ? header("Location: /navegacao.php?page=listaUsuarios") : $_GET['pagination'];
 
 ?>
 
