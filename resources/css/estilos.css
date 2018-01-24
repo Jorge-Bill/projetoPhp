@@ -45,7 +45,7 @@ body{
 }
 
 input:valid {
-    color: green;
+    color: #000000;
 }
 input:invalid {
     color: red;

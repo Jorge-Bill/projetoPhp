@@ -29,12 +29,12 @@ if ($perfil->execute()){
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8" >
                         <div class="container">
-                            <h2><?php echo ucfirst($perfil['nome']); ?></h2>
+                            <h2><?php echo htmlspecialchars(ucfirst($perfil['nome'])); ?></h2>
                         </div>
                         <hr>
                         <ul class="container details">
-                            <li><p><span class="glyphicon glyphicon-user" style="width:50px;"></span><?php echo $perfil['perfil']?></p></li>
-                            <li><p><span class="glyphicon glyphicon-envelope one" style="width:50px;"></span><?php echo $perfil['email']?></p></li>
+                            <li><p><span class="glyphicon glyphicon-user" style="width:50px;"></span><?= htmlspecialchars( $perfil['perfil'])?></p></li>
+                            <li><p><span class="glyphicon glyphicon-envelope one" style="width:50px;"></span><?= htmlspecialchars( $perfil['email'])?></p></li>
                         </ul>
 
                         <hr>

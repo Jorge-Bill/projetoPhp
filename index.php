@@ -33,11 +33,11 @@ if($_SESSION) {
     <form id="loginForm">
         <div class="form-group col-xs-12 col-md-6">
             <label for="email" class=" control-label">E-mail</label>
-            <input class="form-control valid" type="email" id="email" name="email" autofocus placeholder="Digite seu e-mail" required>
+            <input class="form-control valid" type="email" id="email" name="email" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}" autofocus placeholder="Digite seu e-mail" required>
         </div>
         <div class="form-group col-xs-12 col-md-6">
             <label for="senha" class=" control-label">Senha</label>
-            <input class="form-control valid" type="password" maxlength="6" id="senha" name="senha" placeholder="Digite sua senha" required>
+            <input class="form-control valid" type="password" minlength="5" id="senha" name="senha" placeholder="Digite sua senha" required>
         </div>
         <div class="form-group col-xs-12 col-md-12">
 

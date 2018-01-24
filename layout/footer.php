@@ -4,7 +4,7 @@
 
     <?php
     $tempo_atual = @mktime(date("Y/m/d H:i:s"));
-    $tempo_permitido = 100; // tempo em segundos até redirecionar
+    $tempo_permitido = 1000; // tempo em segundos até redirecionar
     $fim = "";
     if(@$_SESSION['Cookie_countdown']=="") {
         $tempo_entrada = @mktime(date("Y/m/d H:i:s"));

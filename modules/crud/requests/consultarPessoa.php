@@ -4,6 +4,10 @@ $pdo = conectar();
 
 $pagina = array_key_exists('pagination', $_GET) ?  $_GET["pagination"] : 1;
 
+if (!intval($pagina)) {
+    header("Location: /navegacao.php?page=listaUsuarios");
+}
+
 $totalpg        = 6;
 $offset         = ($pagina - 1) * $totalpg;
 

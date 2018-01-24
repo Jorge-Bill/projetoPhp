@@ -4,9 +4,8 @@ $usuario = $_SESSION['usuario'];
 
 $paginacao = 1;
 
-if ($_GET && array_key_exists('pagination', $_GET)){
-    $paginacao = $_GET['pagination'];
-}
+$paginacao = ($_GET && array_key_exists('pagination', $_GET)) ? $_GET['pagination'] : 1;
+
 
 ?>
 
@@ -30,9 +29,9 @@ if ($_GET && array_key_exists('pagination', $_GET)){
                 <div class="thumbnail" style=" box-shadow: 1px 1px 1px #dbdbdb;">
                     <img class="img-responsive imgCard" src="../imagens/<?=ucfirst(strtolower($pessoa->foto));?>" alt="foto de perfil">
                     <div class="caption">
-                        <h3><?=ucfirst(strtolower($pessoa->nome));?></h3>
-                        <p><?=ucfirst(strtolower($pessoa->email));?></p>
-                        <p><?=ucfirst(strtolower($pessoa->perfil));?></p>
+                        <h3><?=htmlspecialchars(ucfirst(strtolower($pessoa->nome)));?></h3>
+                        <p><?=htmlspecialchars(ucfirst(strtolower($pessoa->email)));?></p>
+                        <p><?=htmlspecialchars(ucfirst(strtolower($pessoa->perfil)));?></p>
                         <a class="btn btn-sm btn-info" href="/navegacao.php?page=perfilUsuario&id=<?=$pessoa->id;?>">
                             <span class="glyphicon glyphicon-user"></span> Perfil
                         </a>
@@ -71,9 +70,9 @@ if ($_GET && array_key_exists('pagination', $_GET)){
                 ?>
                 <tr>
                     <td><?= $key + 1; ?></td>
-                    <td><?=ucfirst(strtolower($pessoa->nome));?></td>
-                    <td><?=ucfirst(strtolower($pessoa->email));?></td>
-                    <td><?=ucfirst(strtolower($pessoa->perfil));?></td>
+                    <td><?=htmlspecialchars(ucfirst(strtolower($pessoa->nome)));?></td>
+                    <td><?=htmlspecialchars(ucfirst(strtolower($pessoa->email)));?></td>
+                    <td><?=htmlspecialchars(ucfirst(strtolower($pessoa->perfil)));?></td>
                     <td>
                         <a class="btn btn-sm btn-info" href="/navegacao.php?page=perfilUsuario&id=<?=$pessoa->id;?>">
                             <span class="glyphicon glyphicon-user"></span> Perfil
