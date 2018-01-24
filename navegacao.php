@@ -12,11 +12,11 @@ if($_REQUEST && array_key_exists('logado', $_SESSION)) {
 
     if(array_key_exists('page', $_REQUEST)) {
 
-        $path = __DIR__ . '/crud/' . $page. '.php';
+        $path = __DIR__ . '/modules/crud/' . $page. '.php';
 
         if ($page == 'logout'){
 
-            $path = __DIR__ . '/login/' . $page. '.php';
+            $path = __DIR__ . '/modules/login/' . $page. '.php';
 
         }
 

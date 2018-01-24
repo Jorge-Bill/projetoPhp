@@ -84,7 +84,7 @@ if($_SESSION) {
                 if( email !== "" && senha !== "" ) {
                     $.ajax({
                         method: "POST",
-                        url: "login/login_session.php",
+                        url: "modules/login/login_session.php",
                         data: { email: email, senha: senha }
                     }).done(function( data ) {
                         if(data.status !== 200 ) {

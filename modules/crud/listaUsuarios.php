@@ -197,7 +197,7 @@ if ($_GET && array_key_exists('pagination', $_GET)){
                     method: "POST",
                     processData: false,
                     contentType: false,
-                    url: "crud/requests/deletarUsuario.php",
+                    url: "modules/crud/requests/deletarUsuario.php",
                     data: form
                 })
                     .then(

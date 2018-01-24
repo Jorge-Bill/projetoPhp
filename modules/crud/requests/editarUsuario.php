@@ -1,6 +1,6 @@
 <?php
 
-require_once "../../config/conecta.php";
+require_once "../../../config/conecta.php";
 
 header('Content-Type: application/json');
 
@@ -30,7 +30,7 @@ $msg = ['results' => [
 
         if (!empty($pessoa->foto)){
 
-            $destino = '../../imagens/';
+            $destino = '../../../imagens/';
 
             $uploadfile = $destino . basename($pessoa->foto['name']);
 

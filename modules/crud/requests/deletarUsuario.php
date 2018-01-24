@@ -1,6 +1,6 @@
 <?php
 
-require_once "../../config/conecta.php";
+require_once "../../../config/conecta.php";
 
 $pessoa = (object)[
     'id'      => $_POST['id'],

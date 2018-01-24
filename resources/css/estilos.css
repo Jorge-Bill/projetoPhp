@@ -43,3 +43,10 @@ body{
 .sumir{
     display: none;
 }
+
+input:valid {
+    color: green;
+}
+input:invalid {
+    color: red;
+}
