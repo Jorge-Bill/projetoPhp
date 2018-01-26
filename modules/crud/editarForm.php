@@ -29,17 +29,17 @@ if ($editarPessoa->execute()) {
         <div class="form-group">
             <label for="nomePessoa">Nome</label>
             <input type="text" value="<?php echo $editarPessoa['nome'] ?>" class="form-control valid" id="nomePessoa"
-                   name="nomePessoa" placeholder="Nome" minlength="2" required>
+                   name="nomePessoa" placeholder="Nome" minlength="2" pattern="^([A-Za-z]+[,.]?[ ]?|[A-Za-z]+['-]?)+$" required>
         </div>
         <div class="form-group">
             <label for="emailPessoa">E-mail</label>
             <input type="email" value="<?php echo $editarPessoa['email'] ?>" class="form-control valid" id="emailPessoa"
-                   name="emailPessoa" placeholder="E-mail" required>
+                   name="emailPessoa" placeholder="E-mail" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}" required>
         </div>
         <div class="form-group">
             <label for="senhaPessoa">Senha</label>
             <input type="text" value="<?php echo $editarPessoa['senha'] ?>" class="form-control valid" id="senhaPessoa"
-                   name="senhaPessoa" placeholder="Senha" minlength="5" required>
+                   name="senhaPessoa" placeholder="Senha" minlength="5" pattern="[A-Za-z0-9]+" required>
         </div>
 
         <div class="form-group">

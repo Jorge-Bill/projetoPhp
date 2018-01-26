@@ -6,13 +6,13 @@ $paginacao = 1;
 
 $paginacao = ($_GET && array_key_exists('pagination', $_GET)) ? $_GET['pagination'] : 1;
 
-($paginacao > $totalPaginas) ? header("Location: /navegacao.php?page=listaUsuarios") : $_GET['pagination'];
+($paginacao > $totalPaginas) ? header("Location: /navegacao.php?page=listaUsuarios") : 1;
 
 ?>
 
 <h3>Bem vindo, <?= ucfirst($usuario['nome']); ?></h3>
 <?php if($usuario['perfil'] == "Admin"): ?>
-    <a class="btn btn-primary" href="/navegacao.php?page=form-cadastro">
+    <a class="btn btn-primary" href="/navegacao.php?page=cadastrarForm">
         <span class="glyphicon glyphicon-plus"></span> Criar Usuario
     </a>
 <?php endif; ?>

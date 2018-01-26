@@ -26,7 +26,6 @@ $detalhesPessoa = $pdo->prepare("SELECT
 $detalhesPessoa->execute();
 $detalhesPessoa = $detalhesPessoa->fetchAll(PDO::FETCH_OBJ);
 
-
 $dados =  $pdo->prepare("SELECT 
     pessoa.id       AS id,
     pessoa.nome     AS nome,
@@ -42,8 +41,6 @@ $dados->execute();
 $totalRegistro  = $dados->rowCount();
 
 $totalPaginas   = ceil($totalRegistro/$totalpg);
-
-
 
 //for($i = 1; $i <= $totalPaginas; $i++) {
 //    echo $i;

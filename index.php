@@ -37,7 +37,7 @@ if($_SESSION) {
         </div>
         <div class="form-group col-xs-12 col-md-6">
             <label for="senha" class=" control-label">Senha</label>
-            <input class="form-control valid" type="password" minlength="5" id="senha" name="senha" placeholder="Digite sua senha" required>
+            <input pattern="[A-Za-z0-9]+" class="form-control valid" type="password" minlength="5" id="senha" name="senha" placeholder="Digite sua senha" required>
         </div>
         <div class="form-group col-xs-12 col-md-12">
 
@@ -76,7 +76,9 @@ if($_SESSION) {
 
     <script>
         $(document).ready(function(){
+
             $("#loginForm").validate();
+
             $("#login").click(() => {
                 let email = $('#email').val();
                 let senha = $('#senha').val();

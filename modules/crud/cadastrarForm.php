@@ -4,15 +4,15 @@
     <form id="cadastroPessoa">
         <div class="form-group">
             <label for="nomePessoa">Nome* </label>
-            <input type="text" class="form-control valid" id="nomePessoa" name="nomePessoa" placeholder="Nome" minlength="2" required>
+            <input type="text" class="form-control valid" id="nomePessoa" name="nomePessoa" placeholder="Nome" minlength="2" pattern="^([A-Za-z]+[,.]?[ ]?|[A-Za-z]+['-]?)+$" required>
         </div>
         <div class="form-group">
             <label for="emailPessoa">E-mail*</label>
-            <input type="email" class="form-control valid" id="emailPessoa" name="emailPessoa" placeholder="E-mail" required>
+            <input type="email" class="form-control valid" id="emailPessoa" name="emailPessoa" placeholder="E-mail" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}" required>
         </div>
         <div class="form-group">
             <label for="senhaPessoa">Senha*</label>
-            <input type="password" class="form-control valid" id="senhaPessoa" name="senhaPessoa" placeholder="Senha" minlength="5" required>
+            <input type="password" class="form-control valid" id="senhaPessoa" name="senhaPessoa" placeholder="Senha" minlength="5" pattern="[A-Za-z0-9]+" required>
         </div>
         <div class="form-group">
             <label for="imagemPessoa">Foto</label>
@@ -61,6 +61,7 @@
             form.append('foto', event.target.files[0]);
         });
         $("#cadastroPessoa").validate();
+
         $("#cadastrar").click(() => {
             let nome    = $('#nomePessoa').val();
             let email   = $('#emailPessoa').val();
