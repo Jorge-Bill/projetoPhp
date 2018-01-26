@@ -4,7 +4,7 @@ $usuario = $_SESSION['usuario'];
 
 $paginacao = 1;
 
-$paginacao = ($_GET && array_key_exists('pagination', $_GET)) ? $_GET['pagination'] : 1;
+$paginacao = ($_GET && array_key_exists('pagination', $_GET)) ? intval($_GET['pagination']) : 1;
 
 ($paginacao > $totalPaginas) ? header("Location: /navegacao.php?page=listaUsuarios") : 1;
 
@@ -213,7 +213,7 @@ $paginacao = ($_GET && array_key_exists('pagination', $_GET)) ? $_GET['paginatio
             });
         }else {
             $('#tentativaExc').modal('show');
-            $("#mensagemExc").text("Esse registro não pode ser excluido! voce ta logado, <?= $usuario['nome'];?>, babaca");
+            $("#mensagemExc").text("Esse registro não pode ser excluido! voce ta logado, <?= ucfirst($usuario['nome']);?>, babaca");
         }
 
     }

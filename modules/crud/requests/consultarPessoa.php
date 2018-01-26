@@ -2,9 +2,9 @@
 
 $pdo = conectar();
 
-$pagina = array_key_exists('pagination', $_GET) ?  $_GET["pagination"] : 1;
+$pagina = array_key_exists('pagination', $_GET) ?  intval($_GET["pagination"]) : 1;
 
-if (!intval($pagina)) {
+if (is_string($pagina)) {
     header("Location: /navegacao.php?page=listaUsuarios");
 }
 
