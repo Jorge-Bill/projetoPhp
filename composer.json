@@ -8,8 +8,14 @@
   },
   "authors": [
     {
-      "name": "William Aquino e Jorge Mendes",
-      "email": "william.aquino@gmail.com / jorge.mendesx@gmail.com",
+      "name": "William Aquino",
+      "email": "william.aquino@gmail.com",
+      "role": "Developer"
+    },
+    {
+      "name": "Jorge Mendes",
+      "email": "jorge.mendesx@gmail.com",
+      "role": "Developer"
     }
   ],
   "minimum-stability": "dev",
