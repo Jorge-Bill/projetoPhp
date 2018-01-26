@@ -25,7 +25,7 @@ $msg = ['results' => [
             'foto'      => $_FILES['foto']
         ];
 
-        $destino = '../../../imagens/';
+        $destino = '../../../public/imagens/';
 
         $uploadfile = $destino . basename($pessoa->foto['name']);
 

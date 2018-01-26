@@ -23,7 +23,7 @@ if ($perfil->execute()){
                         <?php
                         if (!empty($perfil['foto'])): ?>
                             <div class="container-fluid">
-                                <img class="thumbnail fotoPerfil" src="../imagens/<?php echo $perfil['foto'];?>">
+                                <img class="thumbnail fotoPerfil" src="/public/imagens/<?php echo $perfil['foto'];?>">
                             </div>
                         <?php endif; ?>
                     </div>

@@ -25,7 +25,7 @@ if($_SESSION) {
     }
 </style>
 
-<script src="resources/js/jquery.validate.min.js"></script>
+<script src="/public/resources/js/jquery.validate.min.js"></script>
 
 <div class="container login col-md-4 col-md-offset-4 col-xs-12 thumbnail">
     <h1 class="text-center">Login <span class="glyphicon glyphicon-flash"></span></h1>

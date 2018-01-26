@@ -30,7 +30,7 @@ $msg = ['results' => [
 
         if (!empty($pessoa->foto)){
 
-            $destino = '../../../imagens/';
+            $destino = '../../../public/imagens/';
 
             $uploadfile = $destino . basename($pessoa->foto['name']);
 

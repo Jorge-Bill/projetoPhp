@@ -4,7 +4,7 @@ require_once "config/conecta.php";
 
 session_start();
 
-require_once "layout/header.php";
+require_once "public/layout/header.php";
 
 if($_REQUEST && array_key_exists('logado', $_SESSION)) {
 
@@ -40,4 +40,4 @@ if($_REQUEST && array_key_exists('logado', $_SESSION)) {
 
 }
 
-require_once "layout/footer.php";
+require_once "public/layout/footer.php";

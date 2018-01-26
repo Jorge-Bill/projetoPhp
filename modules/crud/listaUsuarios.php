@@ -28,7 +28,7 @@ $paginacao = ($_GET && array_key_exists('pagination', $_GET)) ? $_GET['paginatio
         <?php foreach ($detalhesPessoa as $key => $pessoa): ?>
             <div class="col-sm-6 col-md-4">
                 <div class="thumbnail" style=" box-shadow: 1px 1px 1px #dbdbdb;">
-                    <img class="img-responsive imgCard" src="../imagens/<?=ucfirst(strtolower($pessoa->foto));?>" alt="foto de perfil">
+                    <img class="img-responsive imgCard" src="/public/imagens/<?=ucfirst(strtolower($pessoa->foto));?>" alt="foto de perfil">
                     <div class="caption">
                         <h3><?=htmlspecialchars(ucfirst(strtolower($pessoa->nome)));?></h3>
                         <p><?=htmlspecialchars(ucfirst(strtolower($pessoa->email)));?></p>

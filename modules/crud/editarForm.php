@@ -16,7 +16,7 @@ if ($editarPessoa->execute()) {
 }
 
 ?>
-<script src="resources/js/jquery.validate.min.js"></script>
+<script src="public/resources/js/jquery.validate.min.js"></script>
 
 <div class="col-md-7 col-md-offset-2 col-xs-12">
     <h1 class="text-center">Editar</h1>
@@ -43,7 +43,7 @@ if ($editarPessoa->execute()) {
         </div>
 
         <div class="form-group">
-            <img id="imgPrevia" class="thumbnail" src="/../imagens/<?php echo $editarPessoa['foto']; ?>" width="500"
+            <img id="imgPrevia" class="thumbnail" src="/public/imagens/<?php echo $editarPessoa['foto']; ?>" width="500"
                  height="auto" alt="">
         </div>
 

@@ -44,6 +44,6 @@
         <footer class="jumbotron">
             <h6 class="text-center">Registration System - <?php echo date('Y'); ?> &copy;</h6>
         </footer>
-        <script src="resources/js/bootstrap.js"></script>
+        <script src="/public/resources/js/bootstrap.js"></script>
     </body>
 </html>
