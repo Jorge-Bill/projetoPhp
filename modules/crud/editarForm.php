@@ -1,5 +1,8 @@
 <?php
-$id = $_GET['id'];
+
+$id = (intval($_GET['id']) != "") ? $id = intval($_GET['id']) : header("Location: index.php");
+
+$id = ($_GET && array_key_exists('id', $_GET)) ? intval($_GET['id']) : header("Location: index.php");
 
 $pdo = conectar();
 
@@ -29,7 +32,7 @@ if ($editarPessoa->execute()) {
         <div class="form-group">
             <label for="nomePessoa">Nome</label>
             <input type="text" value="<?php echo $editarPessoa['nome'] ?>" class="form-control valid" id="nomePessoa"
-                   name="nomePessoa" placeholder="Nome" minlength="2" pattern="^([A-Za-z]+[,.]?[ ]?|[A-Za-z]+['-]?)+$" required>
+                   name="nomePessoa" placeholder="Nome" minlength="2" pattern="^[A-Za-z]+((\s)?([A-Za-z])+)*$" required>
         </div>
         <div class="form-group">
             <label for="emailPessoa">E-mail</label>
@@ -122,11 +125,23 @@ if ($editarPessoa->execute()) {
             let foto = $('#imagemPessoa').val();
             let perfil = $('#perfilPessoa').val();
 
+            if (parseInt(nome)){
+                $('#editarModal').modal('show');
+                $("#mensagem").text("Erro, nome inválido! " + nome);
+            }else{
+                form.append('nome', nome);
+            }
+
+            if (parseInt(email)){
+                $('#editarModal').modal('show');
+                $("#mensagem").text("Erro, e-mail inválido! " + email);
+            }else{
+                form.append('email', email);
+            }
+
             if( nome && email && senha && perfil) {
 
                 form.append('id', id);
-                form.append('nome', nome);
-                form.append('email', email);
                 form.append('senha', senha);
                 form.append('perfil', perfil);
                 form.append('foto', foto);
@@ -146,7 +161,7 @@ if ($editarPessoa->execute()) {
                             } else {
                                 $('#editarModal').modal('show');
                                 $("#mensagem").text("Registro editado com sucesso");
-                                setInterval(function() { window.location = "/navegacao.php" }, 2000);
+                                // setInterval(function() { window.location = "/navegacao.php" }, 2000);
                             }
                         }
                     );
