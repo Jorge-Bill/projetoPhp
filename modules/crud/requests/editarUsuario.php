@@ -6,12 +6,20 @@ header('Content-Type: application/json');
 
 $msg = ['results' => [
     'currect' => [
-        'message' => 'funciona!',
+        'message' => 'Registro editado com sucesso',
         'status' => 200
     ],
     'error' => [
-        'message' => 'Erro ao editar!',
+        'message' => 'Erro ao editar registro',
         'status' => 500
+    ],
+    'errorImage' => [
+        'message' => 'Formato não suportado de imagem',
+        'status' => 501
+    ],
+    'errorImageLocation' => [
+        'message' => 'Houve um erro ao gravar arquivo na pasta de destino!',
+        'status' => 503
     ]
 ]];
 
@@ -35,7 +43,7 @@ $msg = ['results' => [
             $uploadfile = $destino . basename($pessoa->foto['name']);
 
             if(!preg_match('/^image\/(pjpeg|jpeg|png|gif|bmp|jpg)$/', $pessoa->foto['type'])){
-                print_r ('Isso não é uma imagem válida');
+                echo json_encode($msg['results']['errorImage']);
                 exit;
             }
 
@@ -44,7 +52,8 @@ $msg = ['results' => [
             }
 
             if (!move_uploaded_file($pessoa->foto['tmp_name'], $uploadfile)) {
-                print_r("Houve um erro ao gravar arquivo na pasta de destino!");
+                echo json_encode($msg['results']['errorImageLocation']);
+                exit;
             }
         }
 

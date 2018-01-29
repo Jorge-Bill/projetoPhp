@@ -37,7 +37,7 @@ if ($editarPessoa->execute()) {
         <div class="form-group">
             <label for="emailPessoa">E-mail</label>
             <input type="email" value="<?php echo $editarPessoa['email'] ?>" class="form-control valid" id="emailPessoa"
-                   name="emailPessoa" placeholder="E-mail" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}" required>
+                   name="emailPessoa" placeholder="E-mail" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$" required>
         </div>
         <div class="form-group">
             <label for="senhaPessoa">Senha</label>
@@ -72,7 +72,6 @@ if ($editarPessoa->execute()) {
         </div>
     </form>
 </div>
-
 
 <div class="modal fade" tabindex="-1" role="dialog" id="editarModal">
     <div class="modal-dialog" role="document">
@@ -127,7 +126,7 @@ if ($editarPessoa->execute()) {
 
             if (parseInt(nome)){
                 $('#editarModal').modal('show');
-                $("#mensagem").text("Erro, nome inválido! " + nome);
+                $("#mensagem").text("Erro! nome inválido! " + nome);
             }else{
                 form.append('nome', nome);
             }
@@ -157,11 +156,11 @@ if ($editarPessoa->execute()) {
                         function success(data) {
                             if (data.status !== 200) {
                                 $('#editarModal').modal('show');
-                                $("#mensagem").text("Erro!");
+                                $("#mensagem").text(data.message);
                             } else {
                                 $('#editarModal').modal('show');
-                                $("#mensagem").text("Registro editado com sucesso");
-                                // setInterval(function() { window.location = "/navegacao.php" }, 2000);
+                                $("#mensagem").text(data.message);
+                                setInterval(function() { window.location = "/navegacao.php" }, 2000);
                             }
                         }
                     );
