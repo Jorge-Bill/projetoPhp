@@ -80,7 +80,7 @@ if ($editarPessoa->execute()) {
                 <h4 class="modal-title">Mensagem</h4>
             </div>
             <div class="modal-body">
-                <p id="confirmacao"></p>
+                <p id="mensagem"></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
@@ -112,6 +112,7 @@ if ($editarPessoa->execute()) {
         });
 
         $("#formEditar").validate();
+
         $("#editar").click(() => {
             let img = $("#imgPrevia").attr("src");
             let id = $('#idPessoa').val();
@@ -121,33 +122,39 @@ if ($editarPessoa->execute()) {
             let foto = $('#imagemPessoa').val();
             let perfil = $('#perfilPessoa').val();
 
-            form.append('id', id);
-            form.append('nome', nome);
-            form.append('email', email);
-            form.append('senha', senha);
-            form.append('perfil', perfil);
-            form.append('foto', foto);
+            if( nome && email && senha && perfil) {
 
-            $.ajax({
-                method: "POST",
-                processData: false,
-                contentType: false,
-                url: "modules/crud/requests/editarUsuario.php",
-                data: form
-            })
-                .then(
-                    function success(data) {
-                        if (data.status !== 200) {
-                            $('#editarModal').modal('show');
-                            $("#confirmacao").text("Erro!");
-                        } else {
-                            $('#editarModal').modal('show');
-                            $("#confirmacao").text("Registro editado com sucesso");
-                            setInterval(function() { window.location = "/navegacao.php" }, 2000);
+                form.append('id', id);
+                form.append('nome', nome);
+                form.append('email', email);
+                form.append('senha', senha);
+                form.append('perfil', perfil);
+                form.append('foto', foto);
+
+                $.ajax({
+                    method: "POST",
+                    processData: false,
+                    contentType: false,
+                    url: "modules/crud/requests/editarUsuario.php",
+                    data: form
+                })
+                    .then(
+                        function success(data) {
+                            if (data.status !== 200) {
+                                $('#editarModal').modal('show');
+                                $("#mensagem").text("Erro!");
+                            } else {
+                                $('#editarModal').modal('show');
+                                $("#mensagem").text("Registro editado com sucesso");
+                                setInterval(function() { window.location = "/navegacao.php" }, 2000);
+                            }
                         }
-                    }
-                );
-
+                    );
+            }
+            else {
+                $('#editarModal').modal('show');
+                $("#mensagem").text("Erro! Preencha os campos");
+            }
         });
     });
 
