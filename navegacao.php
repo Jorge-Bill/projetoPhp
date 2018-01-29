@@ -6,17 +6,29 @@ session_start();
 
 require_once "public/layout/header.php";
 
-if($_REQUEST && array_key_exists('logado', $_SESSION)) {
+if($_GET && array_key_exists('logado', $_SESSION)) {
 
-    $page = $_REQUEST['page'];
+    $page = $_GET['page'];
 
-    if(array_key_exists('page', $_REQUEST)) {
+    if(array_key_exists('page', $_GET)) {
 
         $path = __DIR__ . '/modules/crud/' . $page. '.php';
 
         if ($page == 'logout'){
 
             $path = __DIR__ . '/modules/login/' . $page. '.php';
+
+        }
+
+        if ($page == '' or $page = intval($page)){
+
+            header("Location: index.php");
+
+        }
+
+        if(count($_GET) >= 3){
+
+            header("Location: index.php");
 
         }
 
