@@ -11,6 +11,13 @@ $perfil->bindParam(":id", $id);
 if ($perfil->execute()){
     $perfil = $perfil->fetch(PDO::FETCH_ASSOC);
 }
+if ($_GET['id'] == ""){
+    header("Location: /navegacao.php");
+}
+
+if (!intval($_GET['id'])) {
+    header("Location: /navegacao.php?page=listaUsuarios");
+}
 
 ?>
     <div class="container">
