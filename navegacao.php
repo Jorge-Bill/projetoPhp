@@ -38,13 +38,13 @@ if($_GET && array_key_exists('logado', $_SESSION)) {
 
         } else {
 
-            die('Página não existe!');
-
+//            die('Página não existe!');
+            header("Location: /navegacao.php?page=listaUsuarios");
         }
     } else {
 
-        die('404 página não encontrada!');
-
+//        die('404 página não encontrada!');
+        header("Location: /navegacao.php?page=listaUsuarios");
     }
 } else {
 

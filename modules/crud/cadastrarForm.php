@@ -10,6 +10,24 @@
             <label for="emailPessoa">E-mail*</label>
             <input type="email" class="form-control valid" id="emailPessoa" name="emailPessoa" placeholder="E-mail" pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}" required>
         </div>
+
+
+        <script>
+            var time_debut = document.getElementById("emailPessoa").value;
+            var time_fin = document.getElementById("time_fin").value;
+            if(time_debut == '' || time_fin == '') {
+                alert("Preencha todos os campos!");
+            }
+            else if (time_debut > time_fin){
+                alert("Maior");
+            }
+            else {
+                document.getElementById("emailPessoa").submit();
+            }
+
+        </script>
+
+
         <div class="form-group">
             <label for="senhaPessoa">Senha*</label>
             <input type="password" class="form-control valid" id="senhaPessoa" name="senhaPessoa" placeholder="Senha" minlength="5" pattern="[A-Za-z0-9]+" required>
@@ -103,4 +121,5 @@
             }
         });
     });
+
 </script>
