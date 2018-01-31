@@ -36,17 +36,19 @@ if (!intval($_GET['id'])) {
                     </div>
                     <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8" >
                         <div class="container">
-                            <h2><?php echo htmlspecialchars(ucfirst($perfil['nome'])); ?></h2>
+                            <h2 style="color: #2aabd2;""><?php echo htmlspecialchars(ucfirst($perfil['nome'])); ?></h2>
                         </div>
                         <hr>
+                        <table class="table table-hover"">
                         <ul class="container details">
-                            <li><p><span class="glyphicon glyphicon-user" style="width:50px;"></span><?= htmlspecialchars( $perfil['perfil'])?></p></li>
-                            <li><p><span class="glyphicon glyphicon-envelope one" style="width:50px;"></span><?= htmlspecialchars( $perfil['email'])?></p></li>
+                            <li><p style="color: #2aabd2;"><span class="glyphicon glyphicon-user" style="width:50px; color: #2aabd2;"></span><?= htmlspecialchars( $perfil['perfil'])?></p></li>
+                            <li><p style="color: #2aabd2;"><span class="glyphicon glyphicon-envelope one" style="width:50px; color: #2aabd2;"></span><?= htmlspecialchars( $perfil['email'])?></p></li>
                         </ul>
-
+                        </table>
                         <hr>
                         <div class="pull-right">
-                            <a class="btn btn-success glyphicon glyphicon-list-alt" href="/navegacao.php?page=listaUsuarios"> Voltar</a>
+                            <a class="btn btn-success" href="/navegacao.php?page=listaUsuarios">Voltar
+                                <espan class="glyphicon glyphicon-list-alt"></espan></a>
                         </div>
                     </div>
                 </div>
